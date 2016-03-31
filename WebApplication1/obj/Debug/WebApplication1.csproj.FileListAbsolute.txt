@@ -1,0 +1,17 @@
+c:\users\lenovo\documents\visual studio 2013\Projects\WebApplication1\WebApplication1\bin\WebApplication1.dll.config
+c:\users\lenovo\documents\visual studio 2013\Projects\WebApplication1\WebApplication1\bin\WebApplication1.dll
+c:\users\lenovo\documents\visual studio 2013\Projects\WebApplication1\WebApplication1\bin\WebApplication1.pdb
+c:\users\lenovo\documents\visual studio 2013\Projects\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
+c:\users\lenovo\documents\visual studio 2013\Projects\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
+C:\Users\Lenovo\Documents\Visual Studio 2013\Projects\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
+C:\Users\Jing\Desktop\New folder (2)\WebApplication1\WebApplication1\bin\WebApplication1.dll
+C:\Users\Jing\Desktop\New folder (2)\WebApplication1\WebApplication1\bin\WebApplication1.pdb
+C:\Users\Jing\Desktop\New folder (2)\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
+C:\Users\Jing\Desktop\New folder (2)\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
+C:\Users\Jing\Desktop\New folder (2)\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
+C:\Users\jliang28\Downloads\WebApplication1\WebApplication1\WebApplication1\bin\WebApplication1.dll.config
+C:\Users\jliang28\Downloads\WebApplication1\WebApplication1\WebApplication1\bin\WebApplication1.dll
+C:\Users\jliang28\Downloads\WebApplication1\WebApplication1\WebApplication1\bin\WebApplication1.pdb
+C:\Users\jliang28\Downloads\WebApplication1\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
+C:\Users\jliang28\Downloads\WebApplication1\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
+C:\Users\jliang28\Downloads\WebApplication1\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
