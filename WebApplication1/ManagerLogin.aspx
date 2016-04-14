@@ -20,13 +20,13 @@
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Label ID="Label2" runat="server" Text="User Name:"></asp:Label>
-            &nbsp;<asp:TextBox ID="txtUsername" runat="server" Width="125px"></asp:TextBox>
+            &nbsp;<asp:TextBox ID="txtUsername" runat="server" Width="125px" OnTextChanged="txtUsername_TextChanged"></asp:TextBox>
             <br />
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Label ID="Label3" runat="server" Text="Password:"></asp:Label>
             &nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" Width="125px"></asp:TextBox>
+            <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" Width="125px" OnTextChanged="txtPassword_TextChanged"></asp:TextBox>
             <br />
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

@@ -46,5 +46,15 @@ namespace PeerEvaluation
             }
             lblError.Visible = true;
         }
+
+        protected void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
