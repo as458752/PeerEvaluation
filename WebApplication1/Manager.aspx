@@ -5,6 +5,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+        .auto-style2 {
+            width: 480px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -14,21 +22,43 @@
         <asp:Label ID="Label1" runat="server" Font-Size="XX-Large" Text="Manager Page"></asp:Label>
         <br />
         </div>
-        <p>
-            &nbsp;</p>
-        <asp:Panel ID="Panel2" runat="server" Height="232px" HorizontalAlign="Center" style="margin-left: 300px" Width="585px">
-            <asp:Label ID="Label3" runat="server" Text="Professor Name"></asp:Label>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="Label4" runat="server" Text="ASU ID"></asp:Label>
-            <br />
-            <br />
-            <asp:ListBox ID="ListBox1" runat="server" Height="135px"></asp:ListBox>
-            <br />
-            <br />
-            <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" />
-        </asp:Panel>
-        <p>
-        </p>
+        <asp:SqlDataSource ID="SqlDataSourceProfessor" runat="server" ConnectionString="<%$ ConnectionStrings:RegistrationConnectionString %>" SelectCommand="SELECT * FROM [Professor]"></asp:SqlDataSource>
+        <table class="auto-style1">
+            <tr>
+                <td class="auto-style2">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style2">&nbsp;</td>
+                <td>
+                    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ASU ID" DataSourceID="SqlDataSourceProfessor" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                        <AlternatingRowStyle BackColor="White" />
+                        <Columns>
+                            <asp:BoundField DataField="ASU ID" HeaderText="ASU ID" ReadOnly="True" SortExpression="ASU ID" />
+                            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                            <asp:CommandField SelectText="Delete" ShowSelectButton="True" />
+                        </Columns>
+                        <EditRowStyle BackColor="#2461BF" />
+                        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                        <RowStyle BackColor="#EFF3FB" />
+                        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                        <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                        <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                        <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                    </asp:GridView>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style2">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
         <asp:Panel ID="Panel1" runat="server" Height="139px" HorizontalAlign="Center" style="margin-left: 300px" Width="585px">
             <br />
             <asp:Label ID="Label2" runat="server" Text="Name:"></asp:Label>
