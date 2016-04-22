@@ -105,7 +105,7 @@
             <tr>
                 <td class="auto-style2">&nbsp;</td>
                 <td class="auto-style4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" Width="81px" />
+                    <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Submit" Width="81px" />
                     </td>
                 <td>&nbsp;</td>
             </tr>

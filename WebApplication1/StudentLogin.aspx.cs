@@ -26,14 +26,14 @@ namespace PeerEvaluation
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["RegistrationConnectionString"].ConnectionString);
             conn.Open();
-            string checkuser = "select count(*) from [Table] where [UserName]='" + TextBoxUserName.Text + "'";
+            string checkuser = "select count(*) from [Account] where [UserName]='" + TextBoxUserName.Text + "'";
             SqlCommand com = new SqlCommand(checkuser, conn);
             int temp = Convert.ToInt32(com.ExecuteScalar().ToString());
             conn.Close();
             if (temp == 1)
             {
                 conn.Open();
-                string checkPasswordQuery = "select [Password] from [Table] where [UserName]='" + TextBoxUserName.Text + "'";
+                string checkPasswordQuery = "select [Password] from [Account] where [UserName]='" + TextBoxUserName.Text + "'";
                 SqlCommand passComm = new SqlCommand(checkPasswordQuery, conn);
                 string password = passComm.ExecuteScalar().ToString().Replace(" ","");
                 if(password == TextBoxPassword.Text)
@@ -66,7 +66,7 @@ namespace PeerEvaluation
 
             using (SqlConnection con = new SqlConnection(constr))
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT Username, [Password] FROM [Table] WHERE Email = @Email"))
+                using (SqlCommand cmd = new SqlCommand("SELECT Username, [Password] FROM [Account] WHERE Email = @Email"))
                 {
                     cmd.Parameters.AddWithValue("@Email", txtEmail.Text.Trim());
                     cmd.Connection = con;
