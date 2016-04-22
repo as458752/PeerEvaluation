@@ -15,6 +15,7 @@
         }
         .auto-style3 {
             width: 359px;
+            text-align: right;
         }
         .auto-style4 {
             width: 359px;
@@ -34,6 +35,11 @@
         }
         .auto-style8 {
             width: 135px;
+            text-align: right;
+        }
+        .auto-style9 {
+            width: 135px;
+            text-align: left;
         }
     </style>
 </head>
@@ -63,15 +69,42 @@
             </tr>
             <tr>
                 <td class="auto-style3">&nbsp;</td>
-                <td class="auto-style8">
-                    <asp:Button ID="ButtonLogin" runat="server" OnClick="ButtonLogin_Click" Text="Login" Width="97px" />
+                <td class="auto-style9">
+                    &nbsp;<asp:Button ID="ButtonLogin" runat="server" OnClick="ButtonLogin_Click" Text="Login" Width="97px" />
                 </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style3">&nbsp;</td>
-                <td class="auto-style8">
+                <td class="auto-style9">
                     <asp:Button ID="ButtonRegister" runat="server" CausesValidation="False" OnClick="ButtonRegister_Click" Text="Register" Width="97px" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style3">&nbsp;</td>
+                <td class="auto-style9">
+                    &nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style3">Forgot password? Enter your email address</td>
+                <td class="auto-style9">
+                    <asp:TextBox ID="txtEmail" runat="server" Width="177px"></asp:TextBox>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style3">&nbsp;</td>
+                <td class="auto-style9">
+                    <asp:Button ID="Send" runat="server" CausesValidation="False" OnClick="SendEmail_Click" Text="Send Email" Width="97px" />
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style3">&nbsp;</td>
+                <td class="auto-style9">
+                    <asp:Label ID="msgLabel" runat="server" style="text-align: left"></asp:Label>
                 </td>
                 <td>&nbsp;</td>
             </tr>

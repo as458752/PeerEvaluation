@@ -11,6 +11,7 @@
         }
         .auto-style2 {
             width: 311px;
+            text-align: right;
         }
         .auto-style3 {
             width: 311px;
@@ -92,8 +93,18 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style2"></td>
+                <td class="auto-style2">Are you a student or professor?</td>
                 <td class="auto-style4">
+                    <asp:DropDownList ID="DropDownList1" runat="server">
+                        <asp:ListItem>Student</asp:ListItem>
+                        <asp:ListItem>Professor</asp:ListItem>
+                    </asp:DropDownList>
+                    </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style2">&nbsp;</td>
+                <td class="auto-style4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" Width="81px" />
                     </td>
                 <td>&nbsp;</td>
@@ -101,6 +112,13 @@
             <tr>
                 <td class="auto-style2">&nbsp;</td>
                 <td class="auto-style4">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style3">Already Registered?</td>
+                <td class="auto-style4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="Login" runat="server" CausesValidation="False" OnClick="Login_Click" Text="Login" Width="81px" />
+                </td>
                 <td>&nbsp;</td>
             </tr>
         </table>
