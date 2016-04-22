@@ -82,6 +82,15 @@
             </tr>
             <tr>
                 <td class="auto-style3" colspan="2">
+                    <asp:Label ID="Label5" runat="server" Text="Student File:"></asp:Label>
+&nbsp;
+                    <asp:FileUpload ID="fileUpload" runat="server" Height="25px" Width="223px" />
+                    <br />
+                    <asp:Button ID="btnUpload" runat="server" OnClick="btnUpload_Click" Text="Upload" />
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style3" colspan="2">
                     <br />
                     <asp:Button ID="btnPublish" runat="server" Height="42px" OnClick="btnPublish_Click" Text="Publish" Width="82px" />
                 </td>

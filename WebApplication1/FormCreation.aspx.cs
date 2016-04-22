@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace PeerEvaluation
 {
@@ -140,6 +142,26 @@ namespace PeerEvaluation
                 var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
 
                 bformatter.Serialize(stream, eForm);
+            }
+        }
+
+        protected void btnUpload_Click(object sender, EventArgs e)
+        {
+            if (fileUpload.HasFiles)
+            {
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["RegistrationConnectionString"].ConnectionString);
+                conn.Open();
+                StreamReader sr = new StreamReader(fileUpload.FileContent);
+                do
+                {
+                    string line = sr.ReadLine();
+                    string[] value = line.Split(',');
+                    string checkPasswordQuery = "insert into [Forms] values ('" + value[0] + "','" + value[1] + "','" + value[2] + "')";
+                    SqlCommand passComm = new SqlCommand(checkPasswordQuery, conn);
+                    passComm.ExecuteScalar();
+                } while (sr.Peek() != -1);
+                sr.Close();
+                conn.Close();
             }
         }
     }
