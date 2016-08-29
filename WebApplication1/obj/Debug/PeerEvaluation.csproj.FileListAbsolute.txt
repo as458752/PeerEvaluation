@@ -32,3 +32,8 @@ T:\GitHub\PeerEvaluation\WebApplication1\bin\PeerEvaluation.pdb
 T:\GitHub\PeerEvaluation\WebApplication1\obj\Debug\PeerEvaluation.csprojResolveAssemblyReference.cache
 T:\GitHub\PeerEvaluation\WebApplication1\obj\Debug\PeerEvaluation.dll
 T:\GitHub\PeerEvaluation\WebApplication1\obj\Debug\PeerEvaluation.pdb
+C:\Users\Jing\Documents\GitHub\PeerEvaluation\WebApplication1\bin\PeerEvaluation.dll
+C:\Users\Jing\Documents\GitHub\PeerEvaluation\WebApplication1\bin\PeerEvaluation.pdb
+C:\Users\Jing\Documents\GitHub\PeerEvaluation\WebApplication1\obj\Debug\PeerEvaluation.csprojResolveAssemblyReference.cache
+C:\Users\Jing\Documents\GitHub\PeerEvaluation\WebApplication1\obj\Debug\PeerEvaluation.dll
+C:\Users\Jing\Documents\GitHub\PeerEvaluation\WebApplication1\obj\Debug\PeerEvaluation.pdb
