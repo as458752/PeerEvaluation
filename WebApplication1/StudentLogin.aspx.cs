@@ -75,8 +75,8 @@ namespace PeerEvaluation
                     {
                         if (sdr.Read())
                         {
-                            username = sdr["Username"].ToString();
-                            password = sdr["Password"].ToString();
+                            username = sdr["Username"].ToString().Trim();
+                            password = sdr["Password"].ToString().Trim();
                         }
                     }
                     con.Close();
@@ -92,16 +92,17 @@ namespace PeerEvaluation
 
                 StringBuilder sb = new StringBuilder();
                 sb.Append("Hi " + username + ", <br /> Click on below given link to Reset Your Password <br />");
-                sb.Append("<a href=http://localhost:5766/ResetPassword.aspx?username=" + username);
-                sb.Append("&email=" + txtEmail.Text + ">Click here to change your password</a> <br/>");
+                string encryed = Encryption.encrypt(username,2);
+                sb.Append("<a href=http://localhost:5766/ResetPasswordPage.aspx?username=" + encryed);
+                sb.Append(">Click here to change your password</a> <br/>");
                 sb.Append("<br /> Thanks");
-                MailMessage mm = new System.Net.Mail.MailMessage("acele245@gmail.com", txtEmail.Text.Trim(), "Password Recovery", sb.ToString());
+                MailMessage mm = new System.Net.Mail.MailMessage("javaemailsender@gmail.com", txtEmail.Text.Trim(), "Password Recovery", sb.ToString());
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
                 smtp.EnableSsl = true;
                 NetworkCredential NetworkCred = new NetworkCredential();
-                NetworkCred.UserName = "acele245@gmail.com";
-                NetworkCred.Password = "Alexjason88";
+                NetworkCred.UserName = "javaemailsender@gmail.com";
+                NetworkCred.Password = "sendtestemail";
                 smtp.UseDefaultCredentials = true;
                 smtp.Credentials = NetworkCred;
                 smtp.Port = 587;

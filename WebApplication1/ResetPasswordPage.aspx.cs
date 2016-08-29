@@ -14,20 +14,22 @@ namespace PeerEvaluation
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //String email = Session["email"].ToString();
+            String encryed = Request.QueryString["username"];
+            Session["username"] = Encryption.decrypt(encryed,2);
         }
 
         protected void confirmButton_Click(object sender, EventArgs e)
         {
-            string email = Session["email"].ToString();
+            string username = Session["username"].ToString();
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["RegistrationConnectionString"].ConnectionString);
             //SqlCommand cmd = new SqlCommand("UPDATE [Table] SET Password =" + newPass.Text + "where Email=@email", conn);
-            SqlCommand cmd = new SqlCommand("Update [Account] set [Password] = '" + newPass.Text + "'where [Email]= '" + email + "'", conn);
+            SqlCommand cmd = new SqlCommand("Update [Account] set [Password] = '" + newPass.Text + "'where [username]= '" + username + "'", conn);
             conn.Open();
             cmd.ExecuteNonQuery();
             conn.Close();
             Response.Write("<script>alert('your password has been updated. You will be redirected to login page')</script>");
-            newPass.Text = "";
+            //newPass.Text = "";
+            newPass.Text = username;
             confirmPass.Text = "";
         }
 
