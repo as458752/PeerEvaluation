@@ -30,7 +30,7 @@
             <tr>
                 <td class="auto-style3" colspan="2">&nbsp;&nbsp;
                     <asp:Label ID="Label2" runat="server" Text="Evaluation Form Name:"></asp:Label>
-&nbsp;<asp:TextBox ID="txtName" runat="server" Width="416px"></asp:TextBox>
+&nbsp;<asp:TextBox ID="txtName" runat="server" Width="416px" OnTextChanged="txtName_TextChanged"></asp:TextBox>
                     <br />
                     <br />
                 </td>
@@ -42,7 +42,7 @@
                 <td style="text-align: center">
                     <asp:Label ID="Label3" runat="server" Text="Question Type: "></asp:Label>
                     <asp:RadioButtonList ID="rblType" runat="server" AutoPostBack="True" OnSelectedIndexChanged="rblType_SelectedIndexChanged" RepeatDirection="Horizontal">
-                        <asp:ListItem>Multiple Choice</asp:ListItem>
+                        <asp:ListItem Selected="True">Multiple Choice</asp:ListItem>
                         <asp:ListItem>Short Answers</asp:ListItem>
                     </asp:RadioButtonList>
                     <br />
@@ -82,16 +82,6 @@
             </tr>
             <tr>
                 <td class="auto-style3" colspan="2">
-                    <asp:Label ID="Label5" runat="server" Text="Student File:"></asp:Label>
-&nbsp;
-                    <asp:FileUpload ID="fileUpload" runat="server" Height="25px" Width="223px" />
-                    <br />
-                    <asp:Button ID="btnUpload" runat="server" OnClick="btnUpload_Click" Text="Upload" />
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style3" colspan="2">
-                    <br />
                     <asp:Button ID="btnPublish" runat="server" Height="42px" OnClick="btnPublish_Click" Text="Publish" Width="82px" />
                 </td>
             </tr>

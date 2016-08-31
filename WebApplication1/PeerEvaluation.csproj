@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,7 +40,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -64,6 +64,7 @@
     <Content Include="App_Data\Registration_log.ldf">
       <DependentUpon>Registration.mdf</DependentUpon>
     </Content>
+    <Content Include="ClassManager.aspx" />
     <Content Include="DatabaseManager.aspx" />
     <Content Include="FormCreation.aspx" />
     <Content Include="ManagerLogin.aspx" />
@@ -76,6 +77,13 @@
     <Content Include="Manager.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassManager.aspx.cs">
+      <DependentUpon>ClassManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClassManager.aspx.designer.cs">
+      <DependentUpon>ClassManager.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseManager.aspx.cs">
       <DependentUpon>DatabaseManager.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

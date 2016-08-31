@@ -134,35 +134,34 @@ namespace PeerEvaluation
         protected void btnPublish_Click(object sender, EventArgs e)
         {
             EvaluationForm eForm = Session["eForm"] as EvaluationForm;
-            eForm.setName(txtName.Text);
-            string fLocation = Path.Combine(HttpRuntime.AppDomainAppPath, @"App_Data\"+txtName.Text+".txt");
-            //serialize
-            using (Stream stream = File.Open(fLocation, FileMode.Create))
+            if (txtName.Text != "" && eForm != null)
             {
-                var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                // Insert class data
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["RegistrationConnectionString"].ConnectionString);
+                conn.Open();
+                string insertQuery = "insert into [FormsQuestions] ([CreatorID],[FormName],[Description],[Choice1],[Choice2],[Choice3],[Choice4],[Choice5]) values (@CreatorID,@FormName,@Description,@Choice1,@Choice2,@Choice3,@Choice4,@Choice5)";
+                SqlCommand comm = new SqlCommand(insertQuery, conn);
+                comm.Parameters.AddWithValue("@CreatorID", Session["ASU ID"].ToString());
+                comm.Parameters.AddWithValue("@FormName", txtName.Text);
 
-                bformatter.Serialize(stream, eForm);
+                foreach (Question q in eForm.getQuestions())
+                {
+                    comm.Parameters.AddWithValue("@Description", q.getDescription());
+                    comm.Parameters.AddWithValue("@Choice1", q.getChoice(0));
+                    comm.Parameters.AddWithValue("@Choice2", q.getChoice(1));
+                    comm.Parameters.AddWithValue("@Choice3", q.getChoice(2));
+                    comm.Parameters.AddWithValue("@Choice4", q.getChoice(3));
+                    comm.Parameters.AddWithValue("@Choice5", q.getChoice(4));
+                    comm.ExecuteNonQuery();
+                }
+                conn.Close();
+                Response.Redirect("ClassManager.aspx");
             }
         }
 
-        protected void btnUpload_Click(object sender, EventArgs e)
+        protected void txtName_TextChanged(object sender, EventArgs e)
         {
-            if (fileUpload.HasFiles)
-            {
-                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["RegistrationConnectionString"].ConnectionString);
-                conn.Open();
-                StreamReader sr = new StreamReader(fileUpload.FileContent);
-                do
-                {
-                    string line = sr.ReadLine();
-                    string[] value = line.Split(',');
-                    string checkPasswordQuery = "insert into [Forms] values ('" + value[0] + "','" + value[1] + "','" + value[2] + "')";
-                    SqlCommand passComm = new SqlCommand(checkPasswordQuery, conn);
-                    passComm.ExecuteScalar();
-                } while (sr.Peek() != -1);
-                sr.Close();
-                conn.Close();
-            }
+
         }
     }
 }

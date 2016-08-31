@@ -26,7 +26,8 @@ namespace PeerEvaluation
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["RegistrationConnectionString"].ConnectionString);
             conn.Open();
-            string checkuser = "select count(*) from [Account] where [UserName]='" + TextBoxUserName.Text + "'";
+            string userName = TextBoxUserName.Text;
+            string checkuser = "select count(*) from [Account] where [UserName]='" + userName + "'";
             SqlCommand com = new SqlCommand(checkuser, conn);
             int temp = Convert.ToInt32(com.ExecuteScalar().ToString());
             conn.Close();
@@ -34,17 +35,37 @@ namespace PeerEvaluation
             {
                 conn.Open();
                 string checkPasswordQuery = "select [Password] from [Account] where [UserName]='" + TextBoxUserName.Text + "'";
-                SqlCommand passComm = new SqlCommand(checkPasswordQuery, conn);
-                string password = passComm.ExecuteScalar().ToString().Replace(" ","");
+                SqlCommand comm = new SqlCommand(checkPasswordQuery, conn);
+                string password = comm.ExecuteScalar().ToString().Replace(" ","");
+                
                 if(password == TextBoxPassword.Text)
                 {
-                    Session["New"] = TextBoxUserName.Text;
-                    Response.Write("Password is correct");
+                    string getDataQuery = "select [ASU ID],[UserType] from[Account] where[UserName] = '" + TextBoxUserName.Text + "'";
+                    comm = new SqlCommand(getDataQuery, conn);
+                    SqlDataReader reader = comm.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        Session["UserName"] = userName;
+                        reader.Read();
+                        Session["ASU ID"] = reader.GetString(0);
+                        int userType = reader.GetInt32(1);
+                        Response.Write("Information is correct");
+                        if(userType == 0)
+                        {
+                            Response.Redirect("ClassManager.aspx");
+                        }
+                    }
+                    else
+                    {
+                        Response.Write("Database error");
+                    }
+                    reader.Close();                    
                 }
                 else
                 {
                     Response.Write("Password is not correct");
                 }
+                conn.Close();
             }
             else
             {
@@ -75,8 +96,8 @@ namespace PeerEvaluation
                     {
                         if (sdr.Read())
                         {
-                            username = sdr["Username"].ToString().Trim();
-                            password = sdr["Password"].ToString().Trim();
+                            username = sdr["Username"].ToString();
+                            password = sdr["Password"].ToString();
                         }
                     }
                     con.Close();
@@ -92,17 +113,16 @@ namespace PeerEvaluation
 
                 StringBuilder sb = new StringBuilder();
                 sb.Append("Hi " + username + ", <br /> Click on below given link to Reset Your Password <br />");
-                string encryed = Encryption.encrypt(username,2);
-                sb.Append("<a href=http://localhost:5766/ResetPasswordPage.aspx?username=" + encryed);
-                sb.Append(">Click here to change your password</a> <br/>");
+                sb.Append("<a href=http://localhost:5766/ResetPassword.aspx?username=" + username);
+                sb.Append("&email=" + txtEmail.Text + ">Click here to change your password</a> <br/>");
                 sb.Append("<br /> Thanks");
-                MailMessage mm = new System.Net.Mail.MailMessage("javaemailsender@gmail.com", txtEmail.Text.Trim(), "Password Recovery", sb.ToString());
+                MailMessage mm = new System.Net.Mail.MailMessage("acele245@gmail.com", txtEmail.Text.Trim(), "Password Recovery", sb.ToString());
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
                 smtp.EnableSsl = true;
                 NetworkCredential NetworkCred = new NetworkCredential();
-                NetworkCred.UserName = "javaemailsender@gmail.com";
-                NetworkCred.Password = "sendtestemail";
+                NetworkCred.UserName = "acele245@gmail.com";
+                NetworkCred.Password = "Alexjason88";
                 smtp.UseDefaultCredentials = true;
                 smtp.Credentials = NetworkCred;
                 smtp.Port = 587;

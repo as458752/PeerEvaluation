@@ -23,7 +23,10 @@ namespace PeerEvaluation
         }
         public string getChoice(int i)
         {
-            return choice[i];
+            if (choice[i] != null)
+                return choice[i];
+            else
+                return "";
         }
         public string getDescription()
         {

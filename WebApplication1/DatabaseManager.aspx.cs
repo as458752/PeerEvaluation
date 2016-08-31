@@ -14,5 +14,15 @@ namespace PeerEvaluation
 
         }
 
+
+
+        protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String companyName = GridView2.SelectedRow.Cells[1].Text;
+
+            // Display company name selected by the user.
+            TextBox1.Text = "You selected " + companyName + ".";
+        }
+
     }
 }
