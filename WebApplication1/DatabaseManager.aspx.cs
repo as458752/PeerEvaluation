@@ -11,7 +11,9 @@ namespace PeerEvaluation
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //testing
+            int i = 0;
+            i = i+1;
         }
 
         protected void Button1_Click(object sender, EventArgs e)
