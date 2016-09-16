@@ -33,6 +33,11 @@
         .auto-style7 {
             font-size: xx-large;
         }
+        .auto-style8{
+            width: 311px;
+            text-align: left;
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -43,6 +48,11 @@
     
     </div>
         <table class="auto-style1">
+            <tr>
+                <td class="auto-style8">
+                    <asp:Label ID="lblError" runat="server"></asp:Label>
+                </td>
+            </tr>
             <tr>
                 <td class="auto-style3">Username:</td>
                 <td class="auto-style4">
@@ -96,8 +106,8 @@
                 <td class="auto-style2">Are you a student or professor?</td>
                 <td class="auto-style4">
                     <asp:DropDownList ID="DropDownList1" runat="server">
-                        <asp:ListItem>Student</asp:ListItem>
                         <asp:ListItem>Professor</asp:ListItem>
+                        <asp:ListItem>Student</asp:ListItem>
                     </asp:DropDownList>
                     </td>
                 <td>&nbsp;</td>

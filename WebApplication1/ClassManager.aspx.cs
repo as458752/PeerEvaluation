@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -59,25 +60,42 @@ namespace PeerEvaluation
 
         private void updateClassList()
         {
+            // Each time the class list is updated, an associated list of type Class is renewed
+            List<Class> classList = new List<Class>();
+
             lstClasses.Items.Clear();
             // Select existing class data
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["RegistrationConnectionString"].ConnectionString);
             conn.Open();
-            string getDataQuery = "select [Name] from[Classes] where[CreatorID] = '" + Session["ASU ID"].ToString() + "'";
+            string getDataQuery = "select [Name],[CreatorID],[InfoAvailable] from[Classes] where[CreatorID] = '" + Session["ASU ID"].ToString() + "'";
             SqlCommand comm = new SqlCommand(getDataQuery, conn);
             SqlDataReader reader = comm.ExecuteReader();
             if (reader.HasRows)
             {
+                string className;
                 while (reader.Read())
                 {
-                    lstClasses.Items.Add(reader.GetString(0));
+                    
+                    className = reader.GetString(0);
+                    Class newClass = new Class(className, reader.GetString(1), reader.GetSqlBoolean(2).IsTrue);
+                    classList.Add(newClass);
+
+                    string toAdd = className;
+                    if (!newClass.InfoAvailable)
+                    {
+                        toAdd += " (information file not uploaded)";
+                    }
+                    lstClasses.Items.Add(toAdd);
                 }
             }
+            // Update the associated list of type Class
+            Session["ClassList"] = classList;
         }
 
         protected void lstClasses_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnDeleteClass.Enabled = true;
+            btnUpload.Enabled = true;
 
             updateClassForms();
         }
@@ -86,7 +104,7 @@ namespace PeerEvaluation
         {
             lstClassForms.Items.Clear();
 
-            string className = lstClasses.SelectedItem.Text;
+            string className = ((List<Class>)Session["ClassList"])[lstClasses.SelectedIndex].Name;
 
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["RegistrationConnectionString"].ConnectionString);
             conn.Open();
@@ -104,7 +122,8 @@ namespace PeerEvaluation
 
         protected void btnDeleteClass_Click(object sender, EventArgs e)
         {
-            string className = lstClasses.SelectedItem.Text;
+            List<Class> classList = (List<Class>)Session["classList"];
+            string className = classList[lstClasses.SelectedIndex].Name;
 
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["RegistrationConnectionString"].ConnectionString);
             conn.Open();
@@ -118,7 +137,8 @@ namespace PeerEvaluation
 
         protected void btnAddFormToClass_Click(object sender, EventArgs e)
         {
-            string className = lstClasses.SelectedItem.Text;
+            List<Class> classList = (List<Class>)Session["classList"];
+            string className = classList[lstClasses.SelectedIndex].Name;
             string formName = drpFormsList.SelectedItem.Text;
 
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["RegistrationConnectionString"].ConnectionString);
@@ -130,6 +150,79 @@ namespace PeerEvaluation
             comm.ExecuteNonQuery();
             conn.Close();
             updateClassForms();
+        }
+
+        protected void btnUpload_Click(object sender, EventArgs e)
+        {
+            if (fupStudentInfo.HasFiles)
+            {
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["RegistrationConnectionString"].ConnectionString);
+                conn.Open();
+                StreamReader sr = new StreamReader(fupStudentInfo.FileContent);
+
+                string[] values;
+                string sqlCommandString;
+                SqlCommand sqlCommand;
+                SqlDataReader reader;
+                // For each line in the file
+                while (sr.Peek() != -1)
+                {
+                    // Get ASU ID and check if it is already in the database
+                    values = sr.ReadLine().Split(',');
+                    string asuID = values[0];
+                    string groupName = values[1];
+
+                    sqlCommandString = "select * from [Account] where [ASU ID] = '" + asuID + "'";
+                    sqlCommand = new SqlCommand(sqlCommandString, conn);
+                    reader = sqlCommand.ExecuteReader();
+
+                    if (!reader.HasRows)
+                    {
+                        reader.Close();                        
+                        sqlCommandString = "insert into [Account] ([ASU ID]) values ('" + asuID + "')";
+                        sqlCommand = new SqlCommand(sqlCommandString, conn);
+                        sqlCommand.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        reader.Close();
+                    }
+
+                    // Once it has been guaranteed that the ASU ID is in the database,
+                    // create a new entry in the Groups
+                    string className = ((List<Class>)Session["ClassList"])[lstClasses.SelectedIndex].Name;
+
+                    sqlCommandString = "insert into [Groups] ([ASU ID],[ClassName],[GroupNumber]) values (@asuID, @className, @groupName)";
+                    sqlCommand = new SqlCommand(sqlCommandString, conn);
+                    sqlCommand.Parameters.AddWithValue("@asuID", asuID);
+                    sqlCommand.Parameters.AddWithValue("@className", className);
+                    sqlCommand.Parameters.AddWithValue("@groupName", groupName);
+
+                    sqlCommand.ExecuteNonQuery();
+
+                    // Update the class to reflect the fact that the information file is now available                    
+                    sqlCommandString = "update [Classes] set [InfoAvailable]='1' where [Name]='" + className + "'";
+                    sqlCommand = new SqlCommand(sqlCommandString, conn);
+                    sqlCommand.ExecuteNonQuery();
+
+                    /*
+                    string checkPasswordQuery = "insert into [Forms] values ('" + value[0] + "','" + value[1] + "','" + value[2] + "')";
+                    SqlCommand passComm = new SqlCommand(checkPasswordQuery, conn);
+                    passComm.ExecuteScalar();
+                    */
+                }
+                sr.Close();
+                conn.Close();
+                updateClassList();
+            }
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session["ASU ID"] = null;
+            Session["UserName"] = null;
+            Session["ClassList"] = null;
+            Response.Redirect("StudentLogin.aspx");
         }
     }
 }

@@ -11,16 +11,18 @@ namespace PeerEvaluation
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //testing
-            int i = 0;
-            i = i + 1;
+
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+
+
+        protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //testing
-            int i = 0;
-            i++;
+            String companyName = GridView2.SelectedRow.Cells[1].Text;
+
+            // Display company name selected by the user.
+            TextBox1.Text = "You selected " + companyName + ".";
         }
+
     }
 }

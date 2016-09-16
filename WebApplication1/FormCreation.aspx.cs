@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Data;
 
 namespace PeerEvaluation
 {
@@ -144,14 +145,21 @@ namespace PeerEvaluation
                 comm.Parameters.AddWithValue("@CreatorID", Session["ASU ID"].ToString());
                 comm.Parameters.AddWithValue("@FormName", txtName.Text);
 
+                comm.Parameters.Add("@Description", SqlDbType.NVarChar);
+                comm.Parameters.Add("@Choice1", SqlDbType.NVarChar);
+                comm.Parameters.Add("@Choice2", SqlDbType.NVarChar);
+                comm.Parameters.Add("@Choice3", SqlDbType.NVarChar);
+                comm.Parameters.Add("@Choice4", SqlDbType.NVarChar);
+                comm.Parameters.Add("@Choice5", SqlDbType.NVarChar);
+
                 foreach (Question q in eForm.getQuestions())
                 {
-                    comm.Parameters.AddWithValue("@Description", q.getDescription());
-                    comm.Parameters.AddWithValue("@Choice1", q.getChoice(0));
-                    comm.Parameters.AddWithValue("@Choice2", q.getChoice(1));
-                    comm.Parameters.AddWithValue("@Choice3", q.getChoice(2));
-                    comm.Parameters.AddWithValue("@Choice4", q.getChoice(3));
-                    comm.Parameters.AddWithValue("@Choice5", q.getChoice(4));
+                    comm.Parameters["@Description"].Value = q.getDescription();
+                    comm.Parameters["@Choice1"].Value = q.getChoice(0);
+                    comm.Parameters["@Choice2"].Value = q.getChoice(1);
+                    comm.Parameters["@Choice3"].Value = q.getChoice(2);
+                    comm.Parameters["@Choice4"].Value = q.getChoice(3);
+                    comm.Parameters["@Choice5"].Value = q.getChoice(4);
                     comm.ExecuteNonQuery();
                 }
                 conn.Close();

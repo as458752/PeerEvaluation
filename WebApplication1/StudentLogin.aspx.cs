@@ -54,10 +54,15 @@ namespace PeerEvaluation
                         {
                             Response.Redirect("ClassManager.aspx");
                         }
+                        else if(userType == 1)
+                        {
+                            Response.Redirect("StudentPage.aspx");
+                        }
+
                     }
                     else
                     {
-                        Response.Write("Database error");
+                        Response.Write("The user name is not registered.");
                     }
                     reader.Close();                    
                 }

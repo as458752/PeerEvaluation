@@ -94,6 +94,15 @@ namespace PeerEvaluation {
         protected global::System.Web.UI.WebControls.ListBox lstClassForms;
         
         /// <summary>
+        /// fupStudentInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fupStudentInfo;
+        
+        /// <summary>
         /// btnUpload control.
         /// </summary>
         /// <remarks>
@@ -146,5 +155,14 @@ namespace PeerEvaluation {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnDeleteForm;
+        
+        /// <summary>
+        /// btnLogout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLogout;
     }
 }

@@ -49,7 +49,8 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Button ID="btnUpload" runat="server" Text="Upload information" />
+                    <asp:FileUpload ID="fupStudentInfo" runat="server" />
+                    <asp:Button ID="btnUpload" runat="server" Text="Upload information" OnClick="btnUpload_Click" Enabled="False" />
                     <asp:Button ID="btnDeleteClass" runat="server" Text="Delete Class" Enabled="False" OnClick="btnDeleteClass_Click" />
                     
                 </td>
@@ -64,6 +65,8 @@
         </table>
 
         To create a new form, click <a href="FormCreation.aspx">here</a>.
+        <br />
+        <asp:Button ID="btnLogout" runat="server" OnClick="btnLogout_Click" Text="Logout" />
     </form>
 </body>
 </html>

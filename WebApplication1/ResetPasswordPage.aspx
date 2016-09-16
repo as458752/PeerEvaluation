@@ -40,7 +40,7 @@
         </style>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form2" runat="server">
         <div>
         </div>
         <div class="auto-style1">
@@ -51,7 +51,7 @@
                 <td class="auto-style7">
                     <asp:TextBox ID="newPass" runat="server" Width="148px"></asp:TextBox>
                 </td>
-                <td class="auto-style5"></td>
+                <td class="auto-style5">&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style6">Confirm Password</td>
@@ -95,6 +95,11 @@
                 <td>&nbsp;</td>
             </tr>
         </table>
+    </form>
+    <form id="form1" runat="server">
+    <div>
+    
+    </div>
     </form>
 </body>
 </html>
