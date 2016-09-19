@@ -40,7 +40,7 @@
         </style>
 </head>
 <body>
-    <form id="form2" runat="server">
+    <form id="form1" runat="server">
         <div>
         </div>
         <div class="auto-style1">
@@ -95,11 +95,6 @@
                 <td>&nbsp;</td>
             </tr>
         </table>
-    </form>
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
     </form>
 </body>
 </html>
