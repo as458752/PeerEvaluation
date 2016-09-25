@@ -13,7 +13,18 @@
             width: 255px;
         }
         .auto-style3 {
-            width: 750px;
+            width: 825px;
+        }
+        .auto-style4 {
+            width: 255px;
+            height: 40px;
+        }
+        .auto-style5 {
+            width: 825px;
+            height: 40px;
+        }
+        .auto-style6 {
+            height: 40px;
         }
     </style>
 </head>
@@ -108,6 +119,13 @@
                 <td>&nbsp;</td>
             </tr>
             <tr>
+                <td class="auto-style4">
+                </td>
+                <td class="auto-style5">
+                </td>
+                <td class="auto-style6"></td>
+            </tr>
+            <tr>
                 <td class="auto-style2">
                     <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:RegistrationConnectionString %>" SelectCommand="SELECT * FROM [Groups]"></asp:SqlDataSource>
                 </td>
@@ -121,6 +139,13 @@
                         </Columns>
                     </asp:GridView>
                 </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style2">
+                    &nbsp;</td>
+                <td class="auto-style3">
+                    &nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
         </table>
