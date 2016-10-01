@@ -58,5 +58,18 @@ namespace PeerEvaluation
         {
             name = n;
         }
+
+        public string getFormattedGrade() {
+            float gradeAccum = 0;
+            float counter = 0;
+            foreach(Question q in questions) {
+                if(q.getType() == 0) {
+                    counter++;
+                    gradeAccum += q.getGrade();
+                }
+            }
+            gradeAccum /= counter;
+            return gradeAccum.ToString("F1");
+        }
     }
 }

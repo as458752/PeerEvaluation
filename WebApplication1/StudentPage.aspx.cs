@@ -22,22 +22,50 @@ namespace PeerEvaluation
         }
 
         protected void lstClasses_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        {     
             lstClassForms.Items.Clear();
-            // Select existing class data
+            
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["RegistrationConnectionString"].ConnectionString);
             conn.Open();
             string getDataQuery = "select [FormName] from [ClassFormConnection] where[ClassName] = '" + lstClasses.SelectedItem.Text + "'";
             SqlCommand comm = new SqlCommand(getDataQuery, conn);
             SqlDataReader reader = comm.ExecuteReader();
+            List<string> classForms = new List<string>();
+            
+            // First check if there are forms associated with the class
             if (reader.HasRows)
             {
-                string className;
                 while (reader.Read())
                 {
-                    className = reader.GetString(0);
-                    lstClassForms.Items.Add(className);
+                    classForms.Add(reader.GetString(0));
+                }                
+            }
+            reader.Close();
+
+            // If there are forms, check if there are peers to be evaluated
+            if(classForms.Count > 0) {
+                // Get the group number in the given class
+                getDataQuery = "select [GroupNumber] from [Groups] where[ASU ID] = '" + Session["ASU ID"].ToString() + "' and [ClassName] = '" + lstClasses.SelectedItem.Text + "'";
+                comm = new SqlCommand(getDataQuery, conn);
+                reader = comm.ExecuteReader();
+                int groupNumber = 0;
+                if (reader.HasRows) {
+                    while (reader.Read()) {
+                        groupNumber = reader.GetInt32(0);
+                    }
                 }
+                reader.Close();
+
+                // For each form in the class, check if there are peers
+                foreach (String formName in classForms) {
+                    getDataQuery = "select * from [Account] join [Groups] on [Account].[ASU ID]=[Groups].[ASU ID] where [Groups].[GroupNumber]=" + groupNumber + " and [Groups].[ASU ID] <> '" + Session["ASU ID"].ToString() + "' and [Groups].[ClassName]='" + lstClasses.SelectedItem.Text + "' and [Account].[ASU ID] not in (select [PeerID] from [FormsAnswers] where [ASU ID]='" + Session["ASU ID"].ToString() + "')";
+                    comm = new SqlCommand(getDataQuery, conn);
+                    reader = comm.ExecuteReader();
+                    if (reader.HasRows) {
+                        lstClassForms.Items.Add(formName);
+                    }
+                }
+                
             }
         }
 

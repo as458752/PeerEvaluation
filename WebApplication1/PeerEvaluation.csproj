@@ -72,6 +72,7 @@
     <Content Include="Registration.aspx" />
     <Content Include="RegistrationSuccessful.aspx" />
     <Content Include="ResetPasswordPage.aspx" />
+    <Content Include="ResultsViewer.aspx" />
     <Content Include="StudentLogin.aspx" />
     <Content Include="StudentPage.aspx" />
     <Content Include="Web.config">
@@ -97,6 +98,7 @@
     </Compile>
     <Compile Include="Encryption.cs" />
     <Compile Include="EvaluationForm.cs" />
+    <Compile Include="FormResult.cs" />
     <Compile Include="FormCreation.aspx.cs">
       <DependentUpon>FormCreation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -147,6 +149,13 @@
     </Compile>
     <Compile Include="ResetPasswordPage.aspx.designer.cs">
       <DependentUpon>ResetPasswordPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ResultsViewer.aspx.cs">
+      <DependentUpon>ResultsViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ResultsViewer.aspx.designer.cs">
+      <DependentUpon>ResultsViewer.aspx</DependentUpon>
     </Compile>
     <Compile Include="StudentLogin.aspx.cs">
       <DependentUpon>StudentLogin.aspx</DependentUpon>

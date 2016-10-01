@@ -31,20 +31,22 @@ namespace PeerEvaluation
             }
             reader.Close();
             // Get the peer names
-            getDataQuery = "select [Username] from [Account] join [Groups] on [Account].[ASU ID]=[Groups].[ASU ID] where [Groups].[GroupNumber]=" + groupNumber + " and [Groups].[ASU ID] <> '" + Session["ASU ID"].ToString() + "'";
+            getDataQuery = "select [Account].[ASU ID],[FullName] from [Account] join [Groups] on [Account].[ASU ID]=[Groups].[ASU ID] where [Groups].[GroupNumber]=" + groupNumber + " and [Groups].[ASU ID] <> '" + Session["ASU ID"].ToString() + "' and [Groups].[ClassName]='" + Session["ClassName"].ToString() + "' and [Account].[ASU ID] not in (select [PeerID] from [FormsAnswers] where [ASU ID]='" + Session["ASU ID"].ToString() + "')";
             comm = new SqlCommand(getDataQuery, conn);
             reader = comm.ExecuteReader();
-            lblPeers.Text = "";
             string name;
+            List<string> peersIDList = new List<string>();
             if (reader.HasRows)
             {
                 while (reader.Read())
                 {
-                    name = reader.IsDBNull(0) ? "- (name not set yet)" : "- " + reader.GetString(0);
-                    lblPeers.Text += name + "<br />";
+                    peersIDList.Add(reader.GetString(0));
+                    name = reader.GetString(1);
+                    drpPeers.Items.Add(name);
                 }
+                lblFormFillerMsg.Text = "Select one peer to evaluate:";
             }
-            lblPeers.Text += "<br /><br />";
+            Session["PeersIdList"] = peersIDList;
             reader.Close();
             
 
@@ -114,6 +116,10 @@ namespace PeerEvaluation
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            // Get the ASU ID of the selected peer
+            List<string> peersIDList = (List<String>)Session["PeersIdList"];
+            string peerAsuID = peersIDList[drpPeers.SelectedIndex];
+
             // Get the evaluation form object containing the questions
             EvaluationForm evalForm = (EvaluationForm)Session["EvaluationForm"];
 
@@ -124,13 +130,17 @@ namespace PeerEvaluation
             foreach (Question q in evalForm.getQuestions())
             {
                 // Insert each answer in the FormsAnswer table
-                string insertDataStatement = "insert into [FormsAnswers] ([ASU ID],[ClassName],[FormName],[Description],[Answer]) values (@asuId,@className,@formName,@description,@answer)";
+                string insertDataStatement = "insert into [FormsAnswers] ([ASU ID],[ClassName],[FormName],[Description],[Answer],[PeerID],[Date],[Time],[Grade]) values (@asuId,@className,@formName,@description,@answer,@peerID,@date,@time,@grade)";
                 SqlCommand comm = new SqlCommand(insertDataStatement, conn);
                 comm.Parameters.AddWithValue("@asuId", Session["ASU ID"].ToString());
                 comm.Parameters.AddWithValue("@className", Session["ClassName"].ToString());
                 comm.Parameters.AddWithValue("@formName", Session["FormName"].ToString());
                 comm.Parameters.AddWithValue("@description", q.getDescription());
                 comm.Parameters.AddWithValue("@answer", q.getAnswer());
+                comm.Parameters.AddWithValue("@peerID", peerAsuID);
+                comm.Parameters.AddWithValue("@date", DateTime.Now.ToString("ddd d, yyyy"));
+                comm.Parameters.AddWithValue("@time", DateTime.Now.ToString("hh:mm tt"));
+                comm.Parameters.AddWithValue("@grade", evalForm.getFormattedGrade());
                 comm.ExecuteNonQuery();
             }
 

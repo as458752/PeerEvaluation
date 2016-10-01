@@ -72,5 +72,15 @@ namespace PeerEvaluation
                 return tb.Text;
             }
         }
+
+        public float getGrade() {
+            if(type == 0) {
+                // Multiple choice, look for the selected radio button
+                for(int i = 0; i < answerFields.Count; i++) {
+                    if (((RadioButton)answerFields[i]).Checked) return i+1;
+                }
+            }
+            return 0;
+        }
     }
 }

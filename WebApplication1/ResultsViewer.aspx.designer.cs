@@ -10,7 +10,7 @@
 namespace PeerEvaluation {
     
     
-    public partial class FormFiller {
+    public partial class ResultsViewer {
         
         /// <summary>
         /// form1 control.
@@ -22,48 +22,48 @@ namespace PeerEvaluation {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// lblFormName control.
+        /// lblWelcome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFormName;
+        protected global::System.Web.UI.WebControls.Label lblWelcome;
         
         /// <summary>
-        /// lblFormFillerMsg control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFormFillerMsg;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// drpPeers control.
+        /// lblResultsMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpPeers;
+        protected global::System.Web.UI.WebControls.Label lblResultsMessage;
         
         /// <summary>
-        /// panelFormQuestions control.
+        /// panelFormResults control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelFormQuestions;
+        protected global::System.Web.UI.WebControls.Panel panelFormResults;
         
         /// <summary>
-        /// btnSubmit control.
+        /// btnReturn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmit;
+        protected global::System.Web.UI.WebControls.Button btnReturn;
     }
 }

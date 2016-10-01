@@ -16,8 +16,7 @@ namespace PeerEvaluation
         {
             if (!IsPostBack)
             {
-                string userName = (string)Session["UserName"];
-                lblWelcome.Text = "Welcome, " + userName;
+                lblWelcome.Text = "Welcome, " + Session["UserName"].ToString();
                 updateClassList();
                 updateFormsDropDown();
             }
@@ -170,7 +169,9 @@ namespace PeerEvaluation
                     // Get ASU ID and check if it is already in the database
                     values = sr.ReadLine().Split(',');
                     string asuID = values[0];
-                    string groupName = values[1];
+                    string fullName = values[1];
+                    string groupName = values[2];
+                    
 
                     sqlCommandString = "select * from [Account] where [ASU ID] = '" + asuID + "'";
                     sqlCommand = new SqlCommand(sqlCommandString, conn);
@@ -179,7 +180,7 @@ namespace PeerEvaluation
                     if (!reader.HasRows)
                     {
                         reader.Close();                        
-                        sqlCommandString = "insert into [Account] ([ASU ID]) values ('" + asuID + "')";
+                        sqlCommandString = "insert into [Account] ([ASU ID],[FullName]) values ('" + asuID + "','" + fullName + "')";
                         sqlCommand = new SqlCommand(sqlCommandString, conn);
                         sqlCommand.ExecuteNonQuery();
                     }
@@ -204,12 +205,6 @@ namespace PeerEvaluation
                     sqlCommandString = "update [Classes] set [InfoAvailable]='1' where [Name]='" + className + "'";
                     sqlCommand = new SqlCommand(sqlCommandString, conn);
                     sqlCommand.ExecuteNonQuery();
-
-                    /*
-                    string checkPasswordQuery = "insert into [Forms] values ('" + value[0] + "','" + value[1] + "','" + value[2] + "')";
-                    SqlCommand passComm = new SqlCommand(checkPasswordQuery, conn);
-                    passComm.ExecuteScalar();
-                    */
                 }
                 sr.Close();
                 conn.Close();
@@ -223,6 +218,28 @@ namespace PeerEvaluation
             Session["UserName"] = null;
             Session["ClassList"] = null;
             Response.Redirect("StudentLogin.aspx");
+        }
+
+        protected void btnRemoveForm_Click(object sender, EventArgs e) {
+            List<Class> classList = (List<Class>)Session["classList"];
+            string className = classList[lstClasses.SelectedIndex].Name;
+            string formName = lstClassForms.SelectedItem.Text;
+
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["RegistrationConnectionString"].ConnectionString);
+            conn.Open();
+            string deleteQuery = "delete from [ClassFormConnection] where [ClassName]=@className and [FormName]=@formName";
+            SqlCommand comm = new SqlCommand(deleteQuery, conn);
+            comm.Parameters.AddWithValue("@className", className);
+            comm.Parameters.AddWithValue("@formName", formName);
+            comm.ExecuteNonQuery();
+            conn.Close();
+            updateClassForms();            
+        }
+
+        protected void btnViewResults_Click(object sender, EventArgs e) {
+            Session["FormName"] = lstClassForms.SelectedItem.Text;
+            Session["ClassName"] = lstClasses.SelectedItem.Text;
+            Response.Redirect("ResultsViewer.aspx");
         }
     }
 }

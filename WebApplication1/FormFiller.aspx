@@ -25,11 +25,14 @@
                 </td>
             </tr>
             <tr>
-                <td><b>In this form, you will be evaluating your following peers:</b></td> 
+                <td>
+                    <asp:Label ID="lblFormFillerMsg" runat="server"></asp:Label>
+                </td> 
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblPeers" runat="server"></asp:Label>                    
+                    <asp:DropDownList ID="drpPeers" runat="server" Height="25px" Width="318px">
+                    </asp:DropDownList>
                 </td>
             </tr>
             <tr>

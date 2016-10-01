@@ -10,21 +10,21 @@
             width: 100%;
         }
         .auto-style2 {
-            width: 255px;
+            width: 191px;
         }
         .auto-style3 {
-            width: 825px;
+            width: 645px;
         }
         .auto-style4 {
-            width: 255px;
-            height: 40px;
+            width: 191px;
+            height: 37px;
         }
         .auto-style5 {
-            width: 825px;
-            height: 40px;
+            width: 645px;
+            height: 37px;
         }
         .auto-style6 {
-            height: 40px;
+            height: 37px;
         }
     </style>
 </head>
@@ -39,6 +39,7 @@
                     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ASU ID" DataSourceID="SqlDataSource1">
                         <Columns>
                             <asp:BoundField DataField="ASU ID" HeaderText="ASU ID" ReadOnly="True" SortExpression="ASU ID" />
+                            <asp:BoundField DataField="FullName" HeaderText="FullName" SortExpression="FullName" />
                             <asp:BoundField DataField="Username" HeaderText="Username" SortExpression="Username" />
                             <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
                             <asp:BoundField DataField="Password" HeaderText="Password" SortExpression="Password" />
@@ -47,28 +48,7 @@
                         </Columns>
                     </asp:GridView>
                 </td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style2">
-                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:RegistrationConnectionString %>" SelectCommand="SELECT * FROM [Classes]"></asp:SqlDataSource>
-                </td>
-                <td class="auto-style3">
-                    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="Name" DataSourceID="SqlDataSource2">
-                        <Columns>
-                            <asp:BoundField DataField="Name" HeaderText="Name" ReadOnly="True" SortExpression="Name" />
-                            <asp:BoundField DataField="CreatorID" HeaderText="CreatorID" SortExpression="CreatorID" />
-                            <asp:CheckBoxField DataField="InfoAvailable" HeaderText="InfoAvailable" SortExpression="InfoAvailable" />
-                        </Columns>
-                    </asp:GridView>
-                </td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style2">
-                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:RegistrationConnectionString %>" SelectCommand="SELECT * FROM [ClassFormConnection]"></asp:SqlDataSource>
-                </td>
-                <td class="auto-style3">
+                <td>
                     <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSource3">
                         <Columns>
                             <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
@@ -77,11 +57,10 @@
                         </Columns>
                     </asp:GridView>
                 </td>
-                <td>&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style2">
-                    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:RegistrationConnectionString %>" SelectCommand="SELECT * FROM [FormsAnswers]"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:RegistrationConnectionString %>" SelectCommand="SELECT * FROM [Classes]"></asp:SqlDataSource>
                 </td>
                 <td class="auto-style3">
                     <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource4">
@@ -92,14 +71,26 @@
                             <asp:BoundField DataField="FormName" HeaderText="FormName" SortExpression="FormName" />
                             <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
                             <asp:BoundField DataField="Answer" HeaderText="Answer" SortExpression="Answer" />
+                            <asp:BoundField DataField="PeerID" HeaderText="PeerID" SortExpression="PeerID" />
+                            <asp:BoundField DataField="Date" HeaderText="Date" SortExpression="Date" />
+                            <asp:BoundField DataField="Time" HeaderText="Time" SortExpression="Time" />
+                            <asp:BoundField DataField="Grade" HeaderText="Grade" SortExpression="Grade" />
                         </Columns>
                     </asp:GridView>
                 </td>
-                <td>&nbsp;</td>
+                <td>
+                    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="Name" DataSourceID="SqlDataSource2">
+                        <Columns>
+                            <asp:BoundField DataField="Name" HeaderText="Name" ReadOnly="True" SortExpression="Name" />
+                            <asp:BoundField DataField="CreatorID" HeaderText="CreatorID" SortExpression="CreatorID" />
+                            <asp:CheckBoxField DataField="InfoAvailable" HeaderText="InfoAvailable" SortExpression="InfoAvailable" />
+                        </Columns>
+                    </asp:GridView>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style2">
-                    <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:RegistrationConnectionString %>" SelectCommand="SELECT * FROM [FormsQuestions]"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:RegistrationConnectionString %>" SelectCommand="SELECT * FROM [ClassFormConnection]"></asp:SqlDataSource>
                 </td>
                 <td class="auto-style3">
                     <asp:GridView ID="GridView5" runat="server" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource5">
@@ -116,20 +107,7 @@
                         </Columns>
                     </asp:GridView>
                 </td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style4">
-                </td>
-                <td class="auto-style5">
-                </td>
-                <td class="auto-style6"></td>
-            </tr>
-            <tr>
-                <td class="auto-style2">
-                    <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:RegistrationConnectionString %>" SelectCommand="SELECT * FROM [Groups]"></asp:SqlDataSource>
-                </td>
-                <td class="auto-style3">
+                <td>
                     <asp:GridView ID="GridView6" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource6">
                         <Columns>
                             <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
@@ -139,13 +117,36 @@
                         </Columns>
                     </asp:GridView>
                 </td>
-                <td>&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style2">
-                    &nbsp;</td>
-                <td class="auto-style3">
-                    &nbsp;</td>
+                    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:RegistrationConnectionString %>" SelectCommand="SELECT * FROM [FormsAnswers]"></asp:SqlDataSource>
+                </td>
+                <td class="auto-style3">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style4">
+                    <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:RegistrationConnectionString %>" SelectCommand="SELECT * FROM [FormsQuestions]"></asp:SqlDataSource>
+                </td>
+                <td class="auto-style5"></td>
+                <td class="auto-style6"></td>
+            </tr>
+            <tr>
+                <td class="auto-style2">
+                    <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:RegistrationConnectionString %>" SelectCommand="SELECT * FROM [Groups]"></asp:SqlDataSource>
+                </td>
+                <td class="auto-style3">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style2">&nbsp;</td>
+                <td class="auto-style3">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style2">&nbsp;</td>
+                <td class="auto-style3">&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
         </table>

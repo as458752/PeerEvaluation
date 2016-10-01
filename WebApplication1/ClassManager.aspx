@@ -58,8 +58,8 @@
                     <asp:DropDownList ID="drpFormsList" runat="server" Width="200px">
                     </asp:DropDownList>
                     <asp:Button ID="btnAddFormToClass" runat="server" Text="Add Form" OnClick="btnAddFormToClass_Click" style="height: 26px" />
-                    <asp:Button ID="btnViewResults" runat="server" Text="View Results" />
-                    <asp:Button ID="btnDeleteForm" runat="server" Text="Delete Form" />
+                    <asp:Button ID="btnViewResults" runat="server" Text="View Results" OnClick="btnViewResults_Click" />
+                    <asp:Button ID="btnDeleteForm" runat="server" Text="Remove Form" OnClick="btnRemoveForm_Click" />
                 </td>
             </tr>
         </table>
