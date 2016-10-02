@@ -129,19 +129,25 @@
                 <td class="auto-style4">
                     <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:RegistrationConnectionString %>" SelectCommand="SELECT * FROM [FormsQuestions]"></asp:SqlDataSource>
                 </td>
-                <td class="auto-style5"></td>
+                <td class="auto-style5">
+                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
+                </td>
                 <td class="auto-style6"></td>
             </tr>
             <tr>
                 <td class="auto-style2">
                     <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:RegistrationConnectionString %>" SelectCommand="SELECT * FROM [Groups]"></asp:SqlDataSource>
                 </td>
-                <td class="auto-style3">&nbsp;</td>
+                <td class="auto-style3">
+                    <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Button" />
+                </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style2">&nbsp;</td>
-                <td class="auto-style3">&nbsp;</td>
+                <td class="auto-style3">
+                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>

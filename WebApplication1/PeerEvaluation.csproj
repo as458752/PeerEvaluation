@@ -150,6 +150,7 @@
     <Compile Include="ResetPasswordPage.aspx.designer.cs">
       <DependentUpon>ResetPasswordPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Result.cs" />
     <Compile Include="ResultsViewer.aspx.cs">
       <DependentUpon>ResultsViewer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -171,6 +172,7 @@
     <Compile Include="StudentPage.aspx.designer.cs">
       <DependentUpon>StudentPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="XMLUtility.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Web.Debug.config">
