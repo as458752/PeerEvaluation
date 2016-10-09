@@ -1,9 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FormCreation.aspx.cs" Inherits="PeerEvaluation.FormCreation" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FormCreation.aspx.cs" Inherits="PeerEvaluation.FormCreation" %>
 
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head>
     <title></title>
     <style type="text/css">
         .auto-style1 {
@@ -18,8 +19,7 @@
     </style>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <table align="center" class="auto-style1">
+        <table class="auto-style1">
             <tr>
                 <td class="auto-style2" colspan="2" style="text-align: center">
                     <asp:Label ID="Label1" runat="server" Font-Size="XX-Large" style="text-align: center" Text="Team Peer Evaluation Form Creation"></asp:Label>
@@ -86,6 +86,6 @@
                 </td>
             </tr>
         </table>
-    </form>
 </body>
 </html>
+         </asp:Content>

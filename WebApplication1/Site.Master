@@ -1,0 +1,35 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="PeerEvaluation.Site" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link rel="stylesheet" type="text/css" href="mystyle.css"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            text-align: right;
+        }
+        </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div class="auto-style1">
+        <div class="auto-style1">
+            &nbsp;<asp:Label ID="lblWelcome" runat="server" Text="Welcome"></asp:Label>
+            <asp:HyperLink ID="loginLink" runat="server" NavigateUrl="StudentLogin.aspx">Login</asp:HyperLink>
+            <br />
+            <br />
+        </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+        <div class="auto-style2">
+        <br />
+        Footer</div>
+        </div>
+    </form>
+</body>
+</html>

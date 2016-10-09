@@ -1,9 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ClassManager.aspx.cs" Inherits="PeerEvaluation.ClassManager" %>
+﻿<%@ Page Language="C#"  MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ClassManager.aspx.cs" Inherits="PeerEvaluation.ClassManager" %>
 
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head>
     <title></title>
     <style type="text/css">
         .auto-style1 {
@@ -15,8 +16,7 @@
         </style>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <table align="center" class="auto-style1">
+        <table class="auto-style1">
             <tr>
                 <td class="auto-style2" colspan="2" style="text-align: center">
                     <asp:Label ID="lblWelcome" runat="server" Text="Welcome"></asp:Label>
@@ -67,6 +67,6 @@
         To create a new form, click <a href="FormCreation.aspx">here</a>.
         <br />
         <asp:Button ID="btnLogout" runat="server" OnClick="btnLogout_Click" Text="Logout" />
-    </form>
 </body>
 </html>
+    </asp:Content>

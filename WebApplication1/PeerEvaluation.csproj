@@ -58,6 +58,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="images\background.png" />
     <Content Include="App_Data\managerPassword.txt" />
     <Content Include="App_Data\professor.txt" />
     <Content Include="App_Data\Registration.mdf" />
@@ -69,6 +70,7 @@
     <Content Include="FormCreation.aspx" />
     <Content Include="FormFiller.aspx" />
     <Content Include="ManagerLogin.aspx" />
+    <Content Include="myStyle.css" />
     <Content Include="Registration.aspx" />
     <Content Include="RegistrationSuccessful.aspx" />
     <Content Include="ResetPasswordPage.aspx" />
@@ -158,6 +160,13 @@
     <Compile Include="ResultsViewer.aspx.designer.cs">
       <DependentUpon>ResultsViewer.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
     <Compile Include="StudentLogin.aspx.cs">
       <DependentUpon>StudentLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -175,6 +184,7 @@
     <Compile Include="XMLUtility.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Site.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,9 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ResetPasswordPage.aspx.cs" Inherits="PeerEvaluation.ResetPasswordPage" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ResetPasswordPage.aspx.cs" Inherits="PeerEvaluation.ResetPasswordPage" %>
 
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head>
     <title></title>
     <style type="text/css">
 
@@ -40,7 +41,6 @@
         </style>
 </head>
 <body>
-    <form id="form1" runat="server">
         <div>
         </div>
         <div class="auto-style1">
@@ -95,6 +95,6 @@
                 <td>&nbsp;</td>
             </tr>
         </table>
-    </form>
 </body>
 </html>
+      </asp:Content>
