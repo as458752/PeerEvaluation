@@ -14,10 +14,17 @@ namespace PeerEvaluation
             if (!IsPostBack)
             {
                 string userName;
-                if (Session["UserName"]==null)
+                if (Session["manager"] != null)
+                {
+                    loginLink.Text = "Logout";
+                    loginLink.NavigateUrl = "Logout.aspx";
+                    lblWelcome.Text = "Welcome, Manager";
+                    lblWelcome.Visible = true;
+                }
+                else if (Session["UserName"]==null)
                 {
                     loginLink.Text = "Login";
-                    loginLink.NavigateUrl = "StudentLogin.aspx";
+                    loginLink.NavigateUrl = "LoginPage.aspx";
                     lblWelcome.Visible = false;
                 }
                 else
@@ -34,14 +41,15 @@ namespace PeerEvaluation
 
         protected void btnHome_Click(object sender, EventArgs e)
         {
-            if (Session["UserName"] != null)
+            if (Session["manager"] != null) Response.Redirect("Manager.aspx");
+            else if (Session["UserName"] != null)
             {
                 if (Session["usertype"].Equals(0)) Response.Redirect("ClassManager.aspx");
                 else Response.Redirect("StudentPage.aspx");
             }
             else
             {
-                Response.Redirect("StudentLogin.aspx");
+                Response.Redirect("LoginPage.aspx");
             }
         }
 

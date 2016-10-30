@@ -12,8 +12,9 @@ namespace PeerEvaluation
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["UserName"] = null;
+            Session["manager"] = null;
             Session["usertype"] = -1;
-            Response.Redirect("StudentLogin.aspx");
+            Response.Redirect("LoginPage.aspx");
         }
     }
 }

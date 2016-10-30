@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ResetPasswordPage.aspx.cs" Inherits="PeerEvaluation.ResetPasswordPage" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<!DOCTYPE html>
+    <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -37,6 +37,18 @@
         }
         .auto-style3 {
             width: 359px;
+        }
+        .auto-style9 {
+            width: 359px;
+            text-align: right;
+            height: 20px;
+        }
+        .auto-style10 {
+            width: 135px;
+            height: 20px;
+        }
+        .auto-style11 {
+            height: 20px;
         }
         </style>
 </head>
@@ -74,15 +86,13 @@
             </tr>
             <tr>
                 <td class="auto-style3">&nbsp;</td>
-                <td class="auto-style8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Login Page" />
-                </td>
+                <td class="auto-style8">&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style6">&nbsp;</td>
-                <td class="auto-style8">&nbsp;</td>
-                <td>&nbsp;</td>
+                <td class="auto-style9"></td>
+                <td class="auto-style10"></td>
+                <td class="auto-style11"></td>
             </tr>
             <tr>
                 <td class="auto-style6">&nbsp;</td>

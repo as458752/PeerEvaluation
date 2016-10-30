@@ -46,7 +46,6 @@
             </tr>
             
         </table>        
-        <asp:Button ID="btnLogout" runat="server" OnClick="btnLogout_Click" Text="Logout" />
    
 </body>
 </html>

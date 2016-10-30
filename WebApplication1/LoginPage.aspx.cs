@@ -1,28 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data.SqlClient;
-using System.Configuration;
-using System.Net;
-using System.Net.Mail;
-using System.Drawing;
-using System.Text;
-using System.Data;
-
 
 namespace PeerEvaluation
 {
-    public partial class StudentLogin : System.Web.UI.Page
+    public partial class LoginPage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void ButtonLogin_Click(object sender, EventArgs e)
+        protected void btnLogin_Click(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["RegistrationConnectionString"].ConnectionString);
             conn.Open();
@@ -36,9 +34,9 @@ namespace PeerEvaluation
                 conn.Open();
                 string checkPasswordQuery = "select [Password] from [Account] where [UserName]='" + TextBoxUserName.Text + "'";
                 SqlCommand comm = new SqlCommand(checkPasswordQuery, conn);
-                string password = comm.ExecuteScalar().ToString().Replace(" ","");
-                
-                if(password == TextBoxPassword.Text)
+                string password = comm.ExecuteScalar().ToString().Replace(" ", "");
+
+                if (password == TextBoxPassword.Text)
                 {
                     string getDataQuery = "select [ASU ID],[UserType] from[Account] where[UserName] = '" + TextBoxUserName.Text + "'";
                     comm = new SqlCommand(getDataQuery, conn);
@@ -50,12 +48,12 @@ namespace PeerEvaluation
                         Session["ASU ID"] = reader.GetString(0);
                         int userType = reader.GetInt32(1);
                         Response.Write("Information is correct");
-                        if(userType == 0)
+                        if (userType == 0)
                         {
                             Session["usertype"] = 0;
                             Response.Redirect("ClassManager.aspx");
                         }
-                        else if(userType == 1)
+                        else if (userType == 1)
                         {
                             Session["usertype"] = 1;
                             Response.Redirect("StudentPage.aspx");
@@ -64,20 +62,21 @@ namespace PeerEvaluation
                     }
                     else
                     {
-                        Response.Write("The user name is not registered.");
+                        lblErrorMessage.Text = "The user name is not registered.";
                     }
-                    reader.Close();                    
+                    reader.Close();
                 }
                 else
                 {
-                    Response.Write("Password is not correct");
+                    lblErrorMessage.Text = "Password is not correct";
                 }
                 conn.Close();
             }
             else
             {
-                Response.Write("Username is not correct");
+                lblErrorMessage.Text = "Username is not correct";
             }
+            lblErrorMessage.Visible = true;
         }
 
         protected void ButtonRegister_Click(object sender, EventArgs e)
@@ -85,7 +84,7 @@ namespace PeerEvaluation
             Response.Redirect("Registration.aspx");
         }
 
-        protected void SendEmail_Click(object sender, EventArgs e)
+        protected void btnSendEmail_Click(object sender, EventArgs e)
         {
             string username = string.Empty;
             string password = string.Empty;

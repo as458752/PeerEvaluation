@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="PeerEvaluation.Registration" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<!DOCTYPE html>
+    <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -39,6 +39,18 @@
             text-align: left;
             color: red;
         }
+        .auto-style9 {
+            width: 311px;
+            text-align: right;
+            height: 20px;
+        }
+        .auto-style10 {
+            width: 188px;
+            height: 20px;
+        }
+        .auto-style11 {
+            height: 20px;
+        }
     </style>
 </head>
 <body>
@@ -50,8 +62,7 @@
         <table class="auto-style1">
             <tr>
                 <td class="auto-style8">
-                    <asp:Label ID="lblError" runat="server"></asp:Label>
-                </td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style3">Username:</td>
@@ -59,7 +70,7 @@
                     <asp:TextBox ID="TextBoxUN" runat="server" Width="180px"></asp:TextBox>
                 </td>
                 <td class="auto-style5">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBoxUN" ErrorMessage="Username is required." ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBoxUN" ErrorMessage="Username is required." ForeColor="Red" ValidationGroup="registerGroup"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -68,9 +79,9 @@
                     <asp:TextBox ID="TextBoxEmail" runat="server" Width="180px"></asp:TextBox>
                 </td>
                 <td class="auto-style5">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBoxEmail" ErrorMessage="Email is required." ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBoxEmail" ErrorMessage="Email is required." ForeColor="Red" ValidationGroup="registerGroup"></asp:RequiredFieldValidator>
                     <br />
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TextBoxEmail" ErrorMessage="You must enter the valid email." ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TextBoxEmail" ErrorMessage="You must enter the valid email." ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="registerGroup"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
@@ -79,7 +90,7 @@
                     <asp:TextBox ID="TextBoxPass" runat="server" TextMode="Password" Width="180px"></asp:TextBox>
                 </td>
                 <td class="auto-style5">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBoxPass" ErrorMessage="Password is required." ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBoxPass" ErrorMessage="Password is required." ForeColor="Red" ValidationGroup="registerGroup"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -88,9 +99,9 @@
                     <asp:TextBox ID="TextBoxRPass" runat="server" TextMode="Password" Width="180px"></asp:TextBox>
                 </td>
                 <td class="auto-style5">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBoxRPass" ErrorMessage="Comfirm Password is required." ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBoxRPass" ErrorMessage="Comfirm Password is required." ForeColor="Red" ValidationGroup="registerGroup"></asp:RequiredFieldValidator>
                     <br />
-                    <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="TextBoxPass" ControlToValidate="TextBoxRPass" ErrorMessage="Both password must be same." ForeColor="Red"></asp:CompareValidator>
+                    <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="TextBoxPass" ControlToValidate="TextBoxRPass" ErrorMessage="Both password must be same." ForeColor="Red" ValidationGroup="registerGroup"></asp:CompareValidator>
                 </td>
             </tr>
             <tr>
@@ -99,7 +110,7 @@
                     <asp:TextBox ID="TextBoxASUID" runat="server" Width="180px"></asp:TextBox>
                 </td>
                 <td class="auto-style5">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TextBoxASUID" ErrorMessage="ASU ID is required" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TextBoxASUID" ErrorMessage="ASU ID is required" ForeColor="Red" ValidationGroup="registerGroup"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -115,19 +126,19 @@
             <tr>
                 <td class="auto-style2">&nbsp;</td>
                 <td class="auto-style4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Submit" Width="81px" />
+                    <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Submit" Width="81px" ValidationGroup="registerGroup" />
                     </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style2">&nbsp;</td>
-                <td class="auto-style4">&nbsp;</td>
-                <td>&nbsp;</td>
+                <td class="auto-style9"></td>
+                <td class="auto-style10"></td>
+                <td class="auto-style11"></td>
             </tr>
             <tr>
-                <td class="auto-style3">Already Registered?</td>
-                <td class="auto-style4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="Login" runat="server" CausesValidation="False" OnClick="Login_Click" Text="Login" Width="81px" />
+                <td class="auto-style3">&nbsp;</td>
+                <td class="auto-style4">
+                    <asp:Label ID="lblError" runat="server"></asp:Label>
                 </td>
                 <td>&nbsp;</td>
             </tr>

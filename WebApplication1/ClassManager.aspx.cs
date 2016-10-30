@@ -14,6 +14,7 @@ namespace PeerEvaluation
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserName"] == null) Response.Redirect("LoginPage.aspx");
             if (!IsPostBack)
             {
                 //lblWelcome.Text = "Welcome, " + Session["UserName"].ToString();

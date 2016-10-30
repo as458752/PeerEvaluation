@@ -8,50 +8,28 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <style type="text/css">
-        .auto-style1 {
-            text-align: left;
-        }
-
-        .auto-style2 {
-            text-align: right;
-        }
-
-        .auto-style3 {
-            text-align: center;
-        }
-
-        .auto-style4 {
-            width: 100%;
-        }
-
-        .auto-style5 {
-            width: 946px;
-            text-align: left;
-        }
-    </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <table class="auto-style4">
+        <table style="width:100%;">
             <tr>
-                <td class="auto-style5">
+                <td style="width:70%;text-align:left;">
                     <asp:Button ID="btnHome" runat="server" Text="Home" Font-Size="X-Large" OnClick="btnHome_Click" />
                     <asp:Button ID="btnFeatures" runat="server" Font-Size="X-Large" Text="Features" />
                     <asp:Button ID="btnAbout" runat="server" Font-Size="X-Large" Text="About" />
                     <asp:Button ID="btnManager" runat="server" Font-Size="X-Large" OnClick="btnManager_Click" Text="Manager" />
                 </td>
-                <td class="auto-style2">
+                <td style="text-align:right;">
                     <asp:Label ID="lblWelcome" runat="server" Text="Welcome" Font-Size="X-Large"></asp:Label>
-                    <asp:HyperLink ID="loginLink" runat="server" NavigateUrl="StudentLogin.aspx" Font-Size="X-Large">Login</asp:HyperLink>
+                    <asp:HyperLink ID="loginLink" runat="server" NavigateUrl="LoginPage.aspx" Font-Size="X-Large">Login</asp:HyperLink>
                 </td>
             </tr>
         </table>
-        <div class="auto-style3">
+        <div style="text-align:center;">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-        <div class="auto-style1">
+        <div style="text-align:left;">
             <br />
             Footer
         </div>

@@ -16,11 +16,6 @@ namespace PeerEvaluation
 
         }
 
-        protected void Login_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("StudentLogin.aspx");
-        }
-
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["RegistrationConnectionString"].ConnectionString);

@@ -13,6 +13,7 @@ namespace PeerEvaluation
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserName"] == null) Response.Redirect("LoginPage.aspx");
             if (!IsPostBack)
             {
                 string userName = (string)Session["UserName"];
@@ -94,12 +95,6 @@ namespace PeerEvaluation
             }
             reader.Close();
             conn.Close();
-        }
-
-        protected void btnLogout_Click(object sender, EventArgs e)
-        {
-            Session["ASU ID"] = null;
-            Response.Redirect("StudentLogin.aspx");
         }
 
         protected void btnFillForm_Click(object sender, EventArgs e)

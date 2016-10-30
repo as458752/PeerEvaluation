@@ -13,15 +13,6 @@ namespace PeerEvaluation {
     public partial class Registration {
         
         /// <summary>
-        /// lblError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblError;
-        
-        /// <summary>
         /// TextBoxUN control.
         /// </summary>
         /// <remarks>
@@ -148,12 +139,12 @@ namespace PeerEvaluation {
         protected global::System.Web.UI.WebControls.Button btnSubmit;
         
         /// <summary>
-        /// Login control.
+        /// lblError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Login;
+        protected global::System.Web.UI.WebControls.Label lblError;
     }
 }

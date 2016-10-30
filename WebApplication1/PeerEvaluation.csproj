@@ -70,6 +70,7 @@
     <Content Include="DatabaseManager.aspx" />
     <Content Include="FormCreation.aspx" />
     <Content Include="FormFiller.aspx" />
+    <Content Include="LoginPage.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="ManagerLogin.aspx" />
     <Content Include="myStyle.css" />
@@ -77,7 +78,6 @@
     <Content Include="RegistrationSuccessful.aspx" />
     <Content Include="ResetPasswordPage.aspx" />
     <Content Include="ResultsViewer.aspx" />
-    <Content Include="StudentLogin.aspx" />
     <Content Include="StudentPage.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -123,6 +123,13 @@
     </Compile>
     <Compile Include="FormFiller.aspx.designer.cs">
       <DependentUpon>FormFiller.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginPage.aspx.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginPage.aspx.designer.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
@@ -182,13 +189,6 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
-    </Compile>
-    <Compile Include="StudentLogin.aspx.cs">
-      <DependentUpon>StudentLogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="StudentLogin.aspx.designer.cs">
-      <DependentUpon>StudentLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="StudentPage.aspx.cs">
       <DependentUpon>StudentPage.aspx</DependentUpon>
