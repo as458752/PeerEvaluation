@@ -16,7 +16,7 @@ namespace PeerEvaluation
         {
             if (!IsPostBack)
             {
-                lblWelcome.Text = "Welcome, " + Session["UserName"].ToString();
+                //lblWelcome.Text = "Welcome, " + Session["UserName"].ToString();
                 updateClassList();
                 updateFormsDropDown();
             }
@@ -42,18 +42,33 @@ namespace PeerEvaluation
 
         protected void btnCreateClass_Click(object sender, EventArgs e)
         {
-            if (txtClassName.Text != "") {
-                // Insert class data
+            string className = txtClassName.Text;
+            if (className != "") {
+                // Check first if the class already exists
                 SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["RegistrationConnectionString"].ConnectionString);
                 conn.Open();
-                string insertQuery = "insert into [Classes] ([Name],[CreatorID]) values (@Name,@CreatorID)";
-                SqlCommand comm = new SqlCommand(insertQuery, conn);
-                comm.Parameters.AddWithValue("@Name", txtClassName.Text);
-                comm.Parameters.AddWithValue("@CreatorID", Session["ASU ID"].ToString());
-                comm.ExecuteNonQuery();
+                string sqlString = "SELECT COUNT(Name) FROM Classes WHERE Name=@className";
+                SqlCommand comm = new SqlCommand(sqlString, conn);
+                comm.Parameters.AddWithValue("@className", className);
+                int entries = (int)comm.ExecuteScalar();
+
+                if(entries > 0) {
+                    lblCreateClassMessage.Text = "The specified class already exists.";
+                }else {
+                    // Insert class data
+                    sqlString = "insert into [Classes] ([Name],[CreatorID]) values (@Name,@CreatorID)";
+                    comm = new SqlCommand(sqlString, conn);
+                    comm.Parameters.AddWithValue("@Name", className);
+                    comm.Parameters.AddWithValue("@CreatorID", Session["ASU ID"].ToString());
+                    comm.ExecuteNonQuery();                    
+                    txtClassName.Text = "";
+                    updateClassList();
+                    lblCreateClassMessage.Text = "";
+                }
                 conn.Close();
-                txtClassName.Text = "";
-                updateClassList();
+                
+            } else {
+                lblCreateClassMessage.Text = "Enter a name for the class.";
             }
         }
 
@@ -136,19 +151,40 @@ namespace PeerEvaluation
 
         protected void btnAddFormToClass_Click(object sender, EventArgs e)
         {
-            List<Class> classList = (List<Class>)Session["classList"];
-            string className = classList[lstClasses.SelectedIndex].Name;
-            string formName = drpFormsList.SelectedItem.Text;
+            if(lstClasses.SelectedItem != null) {
+                List<Class> classList = (List<Class>)Session["classList"];
+                if(drpFormsList.SelectedIndex > 0) {
+                    // Check if the class hasn't already been assigned the form
+                    string className = classList[lstClasses.SelectedIndex].Name;
+                    string formName = drpFormsList.SelectedItem.Text;
 
-            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["RegistrationConnectionString"].ConnectionString);
-            conn.Open();
-            string insertQuery = "insert into [ClassFormConnection] ([ClassName],[FormName]) values (@ClassName,@FormName)";
-            SqlCommand comm = new SqlCommand(insertQuery, conn);
-            comm.Parameters.AddWithValue("@ClassName", className);
-            comm.Parameters.AddWithValue("@FormName", formName);
-            comm.ExecuteNonQuery();
-            conn.Close();
-            updateClassForms();
+                    SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["RegistrationConnectionString"].ConnectionString);
+                    conn.Open();
+                    string sqlString = "SELECT COUNT(*) FROM ClassFormConnection WHERE ClassName=@className AND FormName=@formName";
+                    SqlCommand comm = new SqlCommand(sqlString, conn);
+                    comm.Parameters.AddWithValue("@ClassName", className);
+                    comm.Parameters.AddWithValue("@FormName", formName);
+                    int entries = (int)comm.ExecuteScalar();
+
+                    if(entries == 0) {
+                        sqlString = "insert into [ClassFormConnection] ([ClassName],[FormName]) values (@ClassName,@FormName)";
+                        comm = new SqlCommand(sqlString, conn);
+                        comm.Parameters.AddWithValue("@ClassName", className);
+                        comm.Parameters.AddWithValue("@FormName", formName);
+                        comm.ExecuteNonQuery();
+                        updateClassForms();
+                    } else {
+                        lblFormsMessage.Text = "The selected class has already been assigned this form.";
+                    }                   
+                    conn.Close();                    
+                }else {
+                    lblFormsMessage.Text = "You must select a valid form.";
+                }
+                
+            }else {
+                lblFormsMessage.Text = "You must select a class first.";
+            }
+            
         }
 
         protected void btnUpload_Click(object sender, EventArgs e)
@@ -221,25 +257,35 @@ namespace PeerEvaluation
         }
 
         protected void btnRemoveForm_Click(object sender, EventArgs e) {
-            List<Class> classList = (List<Class>)Session["classList"];
-            string className = classList[lstClasses.SelectedIndex].Name;
-            string formName = lstClassForms.SelectedItem.Text;
+            if(lstClassForms.SelectedItem != null) {
+                List<Class> classList = (List<Class>)Session["classList"];
+                string className = classList[lstClasses.SelectedIndex].Name;
+                string formName = lstClassForms.SelectedItem.Text;
 
-            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["RegistrationConnectionString"].ConnectionString);
-            conn.Open();
-            string deleteQuery = "delete from [ClassFormConnection] where [ClassName]=@className and [FormName]=@formName";
-            SqlCommand comm = new SqlCommand(deleteQuery, conn);
-            comm.Parameters.AddWithValue("@className", className);
-            comm.Parameters.AddWithValue("@formName", formName);
-            comm.ExecuteNonQuery();
-            conn.Close();
-            updateClassForms();            
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["RegistrationConnectionString"].ConnectionString);
+                conn.Open();
+                string deleteQuery = "delete from [ClassFormConnection] where [ClassName]=@className and [FormName]=@formName";
+                SqlCommand comm = new SqlCommand(deleteQuery, conn);
+                comm.Parameters.AddWithValue("@className", className);
+                comm.Parameters.AddWithValue("@formName", formName);
+                comm.ExecuteNonQuery();
+                conn.Close();
+                updateClassForms();
+            } else {
+                lblFormsMessage.Text = "You must select a form first.";
+            }
+                       
         }
 
         protected void btnViewResults_Click(object sender, EventArgs e) {
-            Session["FormName"] = lstClassForms.SelectedItem.Text;
-            Session["ClassName"] = lstClasses.SelectedItem.Text;
-            Response.Redirect("ResultsViewer.aspx");
+            if(lstClassForms.SelectedItem != null) {
+                Session["FormName"] = lstClassForms.SelectedItem.Text;
+                Session["ClassName"] = lstClasses.SelectedItem.Text;
+                Response.Redirect("ResultsViewer.aspx");
+            } else {
+                lblFormsMessage.Text = "You must select a form first.";
+            }
+            
         }
     }
 }

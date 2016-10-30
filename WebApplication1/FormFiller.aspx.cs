@@ -147,5 +147,11 @@ namespace PeerEvaluation
             conn.Close();
             Response.Redirect("StudentPage.aspx");
         }
+
+        protected void btnCancel_Click(object sender, EventArgs e) {
+            Session["FormName"] = null;
+            Session["ClassName"] = null;
+            Response.Redirect("StudentPage.aspx");
+        }
     }
 }

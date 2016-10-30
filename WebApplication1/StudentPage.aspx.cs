@@ -16,7 +16,7 @@ namespace PeerEvaluation
             if (!IsPostBack)
             {
                 string userName = (string)Session["UserName"];
-                lblWelcome.Text = "Welcome, " + userName;
+                //lblWelcome.Text = "Welcome, " + userName;
                 updateClassList();
             }
         }
@@ -104,9 +104,14 @@ namespace PeerEvaluation
 
         protected void btnFillForm_Click(object sender, EventArgs e)
         {
-            Session["FormName"] = lstClassForms.SelectedItem.Text;
-            Session["ClassName"] = lstClasses.SelectedItem.Text;
-            Response.Redirect("FormFiller.aspx");
+            if(lstClassForms.SelectedItem != null) {
+                Session["FormName"] = lstClassForms.SelectedItem.Text;
+                Session["ClassName"] = lstClasses.SelectedItem.Text;
+                Response.Redirect("FormFiller.aspx");
+            } else {
+                lblMessage.Text = "You must select a form first.";
+            }
+            
         }
     }
 }

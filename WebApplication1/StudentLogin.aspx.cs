@@ -52,10 +52,12 @@ namespace PeerEvaluation
                         Response.Write("Information is correct");
                         if(userType == 0)
                         {
+                            Session["usertype"] = 0;
                             Response.Redirect("ClassManager.aspx");
                         }
                         else if(userType == 1)
                         {
+                            Session["usertype"] = 1;
                             Response.Redirect("StudentPage.aspx");
                         }
 

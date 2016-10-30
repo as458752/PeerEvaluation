@@ -16,10 +16,9 @@
         </style>
 </head>
 <body>
-        <table class="auto-style1">
+        <table class="auto-style1" style="height: 457px">
             <tr>
                 <td class="auto-style2" colspan="2" style="text-align: center">
-                    <asp:Label ID="lblWelcome" runat="server" Text="Welcome"></asp:Label>
                     <br />
                 </td>
             </tr>
@@ -39,7 +38,10 @@
             </tr>
             <tr>
                 <td></td>
-                <td><asp:Button ID="btnFillForm" runat="server" Text="Fill Form" OnClick="btnFillForm_Click" />
+                <td>
+                    <asp:Label ID="lblMessage" runat="server" ForeColor="Red"></asp:Label>
+                    <br />
+                    <asp:Button ID="btnFillForm" runat="server" Text="Fill Form" OnClick="btnFillForm_Click" />
                 </td>
             </tr>
             

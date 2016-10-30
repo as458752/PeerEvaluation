@@ -13,15 +13,6 @@ namespace PeerEvaluation {
     public partial class ClassManager {
         
         /// <summary>
-        /// lblWelcome control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblWelcome;
-        
-        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -67,6 +58,15 @@ namespace PeerEvaluation {
         protected global::System.Web.UI.WebControls.Button btnCreateClass;
         
         /// <summary>
+        /// lblCreateClassMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCreateClassMessage;
+        
+        /// <summary>
         /// lstClasses control.
         /// </summary>
         /// <remarks>
@@ -110,6 +110,15 @@ namespace PeerEvaluation {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnDeleteClass;
+        
+        /// <summary>
+        /// lblFormsMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFormsMessage;
         
         /// <summary>
         /// drpFormsList control.

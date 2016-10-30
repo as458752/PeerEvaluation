@@ -10,7 +10,25 @@
 namespace PeerEvaluation {
     
     
-    public partial class FormFiller {
+    public partial class EvaluationResult {
+        
+        /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
+        /// lblClassName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblClassName;
         
         /// <summary>
         /// lblFormName control.
@@ -22,48 +40,39 @@ namespace PeerEvaluation {
         protected global::System.Web.UI.WebControls.Label lblFormName;
         
         /// <summary>
-        /// lblFormFillerMsg control.
+        /// lblEvaluated control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFormFillerMsg;
+        protected global::System.Web.UI.WebControls.Label lblEvaluated;
         
         /// <summary>
-        /// drpPeers control.
+        /// lblEvaluator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpPeers;
+        protected global::System.Web.UI.WebControls.Label lblEvaluator;
         
         /// <summary>
-        /// panelFormQuestions control.
+        /// panelFormResults control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelFormQuestions;
+        protected global::System.Web.UI.WebControls.Panel panelFormResults;
         
         /// <summary>
-        /// btnCancel control.
+        /// btnReturn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancel;
-        
-        /// <summary>
-        /// btnSubmit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmit;
+        protected global::System.Web.UI.WebControls.Button btnReturn;
     }
 }

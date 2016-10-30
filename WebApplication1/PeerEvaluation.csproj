@@ -58,6 +58,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="EvaluationResult.aspx" />
     <Content Include="images\background.png" />
     <Content Include="App_Data\managerPassword.txt" />
     <Content Include="App_Data\professor.txt" />
@@ -69,6 +70,7 @@
     <Content Include="DatabaseManager.aspx" />
     <Content Include="FormCreation.aspx" />
     <Content Include="FormFiller.aspx" />
+    <Content Include="Logout.aspx" />
     <Content Include="ManagerLogin.aspx" />
     <Content Include="myStyle.css" />
     <Content Include="Registration.aspx" />
@@ -100,6 +102,13 @@
     </Compile>
     <Compile Include="Encryption.cs" />
     <Compile Include="EvaluationForm.cs" />
+    <Compile Include="EvaluationResult.aspx.cs">
+      <DependentUpon>EvaluationResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EvaluationResult.aspx.designer.cs">
+      <DependentUpon>EvaluationResult.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FormResult.cs" />
     <Compile Include="FormCreation.aspx.cs">
       <DependentUpon>FormCreation.aspx</DependentUpon>
@@ -114,6 +123,13 @@
     </Compile>
     <Compile Include="FormFiller.aspx.designer.cs">
       <DependentUpon>FormFiller.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="ManagerLogin.aspx.cs">
       <DependentUpon>ManagerLogin.aspx</DependentUpon>

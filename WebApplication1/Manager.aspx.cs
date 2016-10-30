@@ -22,11 +22,15 @@ namespace PeerEvaluation
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["RegistrationConnectionString"].ConnectionString);
             conn.Open();
-            string checkPasswordQuery = "insert into [Professor] values ('" + txtId.Text + "','" + txtName.Text + "')";
-            SqlCommand passComm = new SqlCommand(checkPasswordQuery, conn);
-            passComm.ExecuteScalar();
+            string checkPasswordQuery = "insert into [Account] ([ASU ID], [FullName], [UserType]) values (@asuID, @fullName,0)";
+            SqlCommand command = new SqlCommand(checkPasswordQuery, conn);
+            command.Parameters.AddWithValue("@asuID", txtId.Text);
+            command.Parameters.AddWithValue("@fullName", txtName.Text);
+            command.ExecuteScalar();
             conn.Close();
             GridView1.DataBind();
+            txtId.Text = "";
+            txtName.Text = "";
         }
 
         protected void btnChange_Click(object sender, EventArgs e)

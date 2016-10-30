@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#"  MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ClassManager.aspx.cs" Inherits="PeerEvaluation.ClassManager" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<!DOCTYPE html>
+    <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -19,7 +19,6 @@
         <table class="auto-style1">
             <tr>
                 <td class="auto-style2" colspan="2" style="text-align: center">
-                    <asp:Label ID="lblWelcome" runat="server" Text="Welcome"></asp:Label>
                     <br />
                 </td>
             </tr>
@@ -37,6 +36,8 @@
                     <asp:Label ID="Label3" runat="server" Text="Name:"></asp:Label>
                     <asp:TextBox ID="txtClassName" Width="400px" runat="server"></asp:TextBox>
                     <asp:Button ID="btnCreateClass" runat="server" Text="Create" OnClick="btnCreateClass_Click" />
+                    <br />
+                    <asp:Label ID="lblCreateClassMessage" runat="server" ForeColor="Red"></asp:Label>
                 </td>
             </tr>
             <tr>
@@ -55,6 +56,8 @@
                     
                 </td>
                 <td>
+                    <asp:Label ID="lblFormsMessage" runat="server" ForeColor="Red"></asp:Label>
+                    <br />
                     <asp:DropDownList ID="drpFormsList" runat="server" Width="200px">
                     </asp:DropDownList>
                     <asp:Button ID="btnAddFormToClass" runat="server" Text="Add Form" OnClick="btnAddFormToClass_Click" style="height: 26px" />

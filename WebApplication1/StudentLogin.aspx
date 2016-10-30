@@ -1,6 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="StudentLogin.aspx.cs" Inherits="PeerEvaluation.StudentLogin" %>
 
-
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -13,6 +12,10 @@
         }
         .auto-style2 {
             width: 100%;
+        }
+        .auto-style3 {
+            width: 1200px;
+            table-layout: fixed
         }
         .auto-style4 {
             width: 505px;
@@ -46,24 +49,35 @@
     }
     .auto-style11 {
         width: 164px;
-        text-align: left;
+        text-align: center;
         height: 32px;
     }
     .auto-style12 {
         height: 32px;
+        width: 967px;
     }
     .auto-style13 {
         width: 505px;
         text-align: right;
-        height: 26px;
+        height: 25px;
     }
     .auto-style14 {
         height: 26px;
+            text-align: left;
+        width: 967px;
     }
         .auto-style15 {
             width: 164px;
             text-align: center;
         }
+        .auto-style17 {
+        width: 967px;
+        text-align: left;
+        height: 25px;
+    }
+    .auto-style18 {
+        width: 967px;
+    }
     </style>
 </head>
 <body>
@@ -72,15 +86,15 @@
                 <td class="auto-style4">&nbsp;</td>
                 <td class="auto-style7">
                     Login Page</td>
-                <td class="auto-style5">
+                <td class="auto-style17">
                     &nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style4">Username</td>
+                <td class="auto-style13">Username</td>
                 <td class="auto-style7">
                     <asp:TextBox ID="TextBoxUserName" runat="server" Width="180px"></asp:TextBox>
                 </td>
-                <td class="auto-style5">
+                <td class="auto-style17">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBoxUserName" ErrorMessage="Please enter Username" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
@@ -96,7 +110,7 @@
             <tr>
                 <td class="auto-style10"></td>
                 <td class="auto-style11">
-                    &nbsp;<asp:Button ID="ButtonLogin" runat="server" OnClick="ButtonLogin_Click" Text="Login" Width="97px" />
+                    <asp:Button ID="ButtonLogin" runat="server" OnClick="ButtonLogin_Click" Text="Login" Width="97px" />
                 </td>
                 <td class="auto-style12"></td>
             </tr>
@@ -105,34 +119,34 @@
                 <td class="auto-style15">
                     <asp:Button ID="ButtonRegister" runat="server" CausesValidation="False" OnClick="ButtonRegister_Click" Text="Register" Width="97px" />
                 </td>
-                <td>&nbsp;</td>
+                <td class="auto-style18">&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style6">&nbsp;</td>
                 <td class="auto-style9">
                     &nbsp;</td>
-                <td>&nbsp;</td>
+                <td class="auto-style18">&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style6">Forgot password? Enter your email address</td>
                 <td class="auto-style9">
                     <asp:TextBox ID="txtEmail" runat="server" Width="177px"></asp:TextBox>
                 </td>
-                <td>&nbsp;</td>
+                <td class="auto-style18">&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style6">&nbsp;</td>
                 <td class="auto-style9">
                     <asp:Button ID="Send" runat="server" CausesValidation="False" OnClick="SendEmail_Click" Text="Send Email" Width="97px" />
                 </td>
-                <td>&nbsp;</td>
+                <td class="auto-style18">&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style6">&nbsp;</td>
                 <td class="auto-style9">
                     <asp:Label ID="msgLabel" runat="server" style="text-align: left"></asp:Label>
                 </td>
-                <td>&nbsp;</td>
+                <td class="auto-style18">&nbsp;</td>
             </tr>
         </table>
 </body>

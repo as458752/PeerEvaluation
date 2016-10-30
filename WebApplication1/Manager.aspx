@@ -10,7 +10,7 @@
             width: 100%;
         }
         .auto-style2 {
-            width: 480px;
+            width: 431px;
         }
     </style>
 </head>
@@ -22,7 +22,22 @@
         <asp:Label ID="Label1" runat="server" Font-Size="XX-Large" Text="Manager Page"></asp:Label>
         <br />
         </div>
-        <asp:SqlDataSource ID="SqlDataSourceProfessor" runat="server" ConnectionString="<%$ ConnectionStrings:RegistrationConnectionString %>" SelectCommand="SELECT * FROM [Professor]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSourceProfessor" runat="server" ConnectionString="<%$ ConnectionStrings:RegistrationConnectionString %>" SelectCommand="SELECT [ASU ID] AS ASU_ID, [FullName] FROM [Account] WHERE ([UserType] = @UserType)" DeleteCommand="DELETE FROM [Account] WHERE [ASU ID] = @ASU_ID" InsertCommand="INSERT INTO [Account] ([ASU ID], [FullName]) VALUES (@ASU_ID, @FullName)" UpdateCommand="UPDATE [Account] SET [FullName] = @FullName WHERE [ASU ID] = @ASU_ID">
+            <DeleteParameters>
+                <asp:Parameter Name="ASU_ID" Type="String" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="ASU_ID" Type="String" />
+                <asp:Parameter Name="FullName" Type="String" />
+            </InsertParameters>
+            <SelectParameters>
+                <asp:Parameter DefaultValue="0" Name="UserType" Type="Int32" />
+            </SelectParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="FullName" Type="String" />
+                <asp:Parameter Name="ASU_ID" Type="String" />
+            </UpdateParameters>
+        </asp:SqlDataSource>
         <table class="auto-style1">
             <tr>
                 <td class="auto-style2">&nbsp;</td>
@@ -32,12 +47,12 @@
             <tr>
                 <td class="auto-style2">&nbsp;</td>
                 <td>
-                    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ASU ID" DataSourceID="SqlDataSourceProfessor" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ASU_ID" DataSourceID="SqlDataSourceProfessor" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
-                            <asp:BoundField DataField="ASU ID" HeaderText="ASU ID" ReadOnly="True" SortExpression="ASU ID" />
-                            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-                            <asp:CommandField SelectText="Delete" ShowSelectButton="True" />
+                            <asp:BoundField DataField="ASU_ID" HeaderText="ASU_ID" ReadOnly="True" SortExpression="ASU_ID" />
+                            <asp:BoundField DataField="FullName" HeaderText="FullName" SortExpression="FullName" />
+                            <asp:CommandField ButtonType="Button" ShowDeleteButton="True" />
                         </Columns>
                         <EditRowStyle BackColor="#2461BF" />
                         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

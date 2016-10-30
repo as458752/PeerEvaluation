@@ -16,18 +16,38 @@ namespace PeerEvaluation
                 string userName;
                 if (Session["UserName"]==null)
                 {
-                    loginLink.Visible = true;
+                    loginLink.Text = "Login";
+                    loginLink.NavigateUrl = "StudentLogin.aspx";
                     lblWelcome.Visible = false;
                 }
                 else
                 {
-                    loginLink.Visible = false;
+                    loginLink.Text = "Logout";
+                    loginLink.NavigateUrl = "Logout.aspx";
                     userName = (string)Session["UserName"];
-                    lblWelcome.Text = "Welcom, " + userName;
+                    lblWelcome.Text = "Welcome, " + userName;
                     lblWelcome.Visible = true;
                 }
                 
             }
+        }
+
+        protected void btnHome_Click(object sender, EventArgs e)
+        {
+            if (Session["UserName"] != null)
+            {
+                if (Session["usertype"].Equals(0)) Response.Redirect("ClassManager.aspx");
+                else Response.Redirect("StudentPage.aspx");
+            }
+            else
+            {
+                Response.Redirect("StudentLogin.aspx");
+            }
+        }
+
+        protected void btnManager_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ManagerLogin.aspx");
         }
     }
 }
