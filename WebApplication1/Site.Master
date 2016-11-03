@@ -15,7 +15,7 @@
             <tr>
                 <td style="width:70%;text-align:left;">
                     <asp:Button ID="btnHome" runat="server" Text="Home" Font-Size="X-Large" OnClick="btnHome_Click" />
-                    <asp:Button ID="btnFeatures" runat="server" Font-Size="X-Large" Text="Features" />
+                    <asp:Button ID="btnFeatures" runat="server" Font-Size="X-Large" Text="Features" OnClick="btnFeatures_Click" />
                     <asp:Button ID="btnAbout" runat="server" Font-Size="X-Large" Text="About" />
                     <asp:Button ID="btnManager" runat="server" Font-Size="X-Large" OnClick="btnManager_Click" Text="Manager" />
                 </td>
@@ -29,9 +29,9 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-        <div style="text-align:left;">
+        <div style="text-align:center;">
             <br />
-            Footer
+            Copyright ASU CSE486 - Jing, Hiep and Satvinder
         </div>
     </form>
 </body>

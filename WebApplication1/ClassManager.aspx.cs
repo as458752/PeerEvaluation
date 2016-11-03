@@ -274,19 +274,29 @@ namespace PeerEvaluation
                 updateClassForms();
             } else {
                 lblFormsMessage.Text = "You must select a form first.";
+                lblFormsMessage.Visible = true;
             }
                        
         }
 
-        protected void btnViewResults_Click(object sender, EventArgs e) {
-            if(lstClassForms.SelectedItem != null) {
+        protected void clickHere_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FormCreation.aspx");
+        }
+
+        protected void btnViewResults_Click1(object sender, EventArgs e)
+        {
+            if (lstClassForms.SelectedItem != null)
+            {
                 Session["FormName"] = lstClassForms.SelectedItem.Text;
                 Session["ClassName"] = lstClasses.SelectedItem.Text;
                 Response.Redirect("ResultsViewer.aspx");
-            } else {
-                lblFormsMessage.Text = "You must select a form first.";
             }
-            
+            else
+            {
+                lblFormsMessage.Text = "You must select a form first.";
+                lblFormsMessage.Visible = true;
+            }
         }
     }
 }

@@ -22,22 +22,31 @@ namespace PeerEvaluation {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// Label2 control.
+        /// lstClasses control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.ListBox lstClasses;
         
         /// <summary>
-        /// Label3 control.
+        /// lstClassForms control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.ListBox lstClassForms;
+        
+        /// <summary>
+        /// Label5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
         /// txtClassName control.
@@ -56,33 +65,6 @@ namespace PeerEvaluation {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCreateClass;
-        
-        /// <summary>
-        /// lblCreateClassMessage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCreateClassMessage;
-        
-        /// <summary>
-        /// lstClasses control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lstClasses;
-        
-        /// <summary>
-        /// lstClassForms control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lstClassForms;
         
         /// <summary>
         /// fupStudentInfo control.
@@ -112,13 +94,22 @@ namespace PeerEvaluation {
         protected global::System.Web.UI.WebControls.Button btnDeleteClass;
         
         /// <summary>
-        /// lblFormsMessage control.
+        /// lblCreateClassMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFormsMessage;
+        protected global::System.Web.UI.WebControls.Label lblCreateClassMessage;
+        
+        /// <summary>
+        /// clickHere control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button clickHere;
         
         /// <summary>
         /// drpFormsList control.
@@ -139,15 +130,6 @@ namespace PeerEvaluation {
         protected global::System.Web.UI.WebControls.Button btnAddFormToClass;
         
         /// <summary>
-        /// btnViewResults control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnViewResults;
-        
-        /// <summary>
         /// btnDeleteForm control.
         /// </summary>
         /// <remarks>
@@ -157,12 +139,21 @@ namespace PeerEvaluation {
         protected global::System.Web.UI.WebControls.Button btnDeleteForm;
         
         /// <summary>
-        /// btnLogout control.
+        /// btnViewResults control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogout;
+        protected global::System.Web.UI.WebControls.Button btnViewResults;
+        
+        /// <summary>
+        /// lblFormsMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFormsMessage;
     }
 }

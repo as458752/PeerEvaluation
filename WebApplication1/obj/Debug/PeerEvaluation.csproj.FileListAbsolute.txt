@@ -62,3 +62,9 @@ C:\Users\Jing\Source\Repos\PeerEvaluation-master\WebApplication1\bin\PeerEvaluat
 C:\Users\Jing\Source\Repos\PeerEvaluation-master\WebApplication1\obj\Debug\PeerEvaluation.csprojResolveAssemblyReference.cache
 C:\Users\Jing\Source\Repos\PeerEvaluation-master\WebApplication1\obj\Debug\PeerEvaluation.dll
 C:\Users\Jing\Source\Repos\PeerEvaluation-master\WebApplication1\obj\Debug\PeerEvaluation.pdb
+C:\Users\Satvinder\Desktop\PeerEvaluation-master\WebApplication1\bin\PeerEvaluation.dll.config
+C:\Users\Satvinder\Desktop\PeerEvaluation-master\WebApplication1\bin\PeerEvaluation.dll
+C:\Users\Satvinder\Desktop\PeerEvaluation-master\WebApplication1\bin\PeerEvaluation.pdb
+C:\Users\Satvinder\Desktop\PeerEvaluation-master\WebApplication1\obj\Debug\PeerEvaluation.csprojResolveAssemblyReference.cache
+C:\Users\Satvinder\Desktop\PeerEvaluation-master\WebApplication1\obj\Debug\PeerEvaluation.dll
+C:\Users\Satvinder\Desktop\PeerEvaluation-master\WebApplication1\obj\Debug\PeerEvaluation.pdb

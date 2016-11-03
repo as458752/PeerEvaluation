@@ -70,6 +70,12 @@
     <Content Include="DatabaseManager.aspx" />
     <Content Include="FormCreation.aspx" />
     <Content Include="FormFiller.aspx" />
+    <Content Include="images\createclass.PNG" />
+    <Content Include="images\createform.PNG" />
+    <Content Include="images\enrolled.PNG" />
+    <Content Include="images\evaluate.PNG" />
+    <Content Include="images\newclass.PNG" />
+    <Content Include="images\peer1.PNG" />
     <Content Include="LoginPage.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="ManagerLogin.aspx" />
@@ -79,6 +85,7 @@
     <Content Include="ResetPasswordPage.aspx" />
     <Content Include="ResultsViewer.aspx" />
     <Content Include="StudentPage.aspx" />
+    <Content Include="Tutorials.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -196,6 +203,13 @@
     </Compile>
     <Compile Include="StudentPage.aspx.designer.cs">
       <DependentUpon>StudentPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tutorials.aspx.cs">
+      <DependentUpon>Tutorials.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tutorials.aspx.designer.cs">
+      <DependentUpon>Tutorials.aspx</DependentUpon>
     </Compile>
     <Compile Include="XMLUtility.cs" />
   </ItemGroup>

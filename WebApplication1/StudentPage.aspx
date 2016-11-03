@@ -7,7 +7,7 @@
     <title></title>
     <style type="text/css">
         .auto-style1 {
-            width: 1200px;
+            width: 1124px;
             table-layout: fixed
         }
         .auto-style2 {
@@ -24,20 +24,20 @@
             </tr>
             <tr>
                 <td class="auto-style2" colspan="2" style="text-align: center">
-                    <asp:Label ID="Label1" runat="server" Font-Size="XX-Large" style="text-align: center" Text="Evaluation Forms"></asp:Label>
+                    <asp:Label ID="Label1" runat="server" Font-Size="XX-Large" style="text-align: center" Text="Evaluation Form Selection Page"></asp:Label>
                     <br />
                 </td>
             </tr>
             <tr>
-                <td>These are the classes you are currently enrrolled in.</td>
-                <td>Select a class to list here its associated evaluation forms.</td>
+                <td><strong>Enrolled classes for Evaluation (choose one):</strong></td>
+                <td><strong>Evaluation forms for selected class (choose one):</strong></td>
             </tr>
             <tr>             
-                <td><asp:ListBox ID="lstClasses" Rows="20" width="100%" runat="server" AutoPostBack="True" OnSelectedIndexChanged="lstClasses_SelectedIndexChanged"></asp:ListBox></td>
-                <td><asp:ListBox ID="lstClassForms" Rows="20" width="100%" runat="server" OnSelectedIndexChanged="lstClassForms_SelectedIndexChanged"></asp:ListBox></td>
+                <td><asp:ListBox ID="lstClasses" Rows="20" width="65%" runat="server" AutoPostBack="True" OnSelectedIndexChanged="lstClasses_SelectedIndexChanged" Height="258px" style="text-align: center"></asp:ListBox></td>
+                <td><asp:ListBox ID="lstClassForms" Rows="20" width="63%" runat="server" OnSelectedIndexChanged="lstClassForms_SelectedIndexChanged" Height="248px"></asp:ListBox></td>
             </tr>
             <tr>
-                <td></td>
+                <td>&nbsp;</td>
                 <td>
                     <asp:Label ID="lblMessage" runat="server" ForeColor="Red"></asp:Label>
                     <br />

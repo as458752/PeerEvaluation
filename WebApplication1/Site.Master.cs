@@ -57,5 +57,10 @@ namespace PeerEvaluation
         {
             Response.Redirect("ManagerLogin.aspx");
         }
+
+        protected void btnFeatures_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Tutorials.aspx");
+        }
     }
 }
