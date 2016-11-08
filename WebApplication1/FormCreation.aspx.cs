@@ -15,7 +15,6 @@ namespace PeerEvaluation
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void rblType_SelectedIndexChanged(object sender, EventArgs e)
@@ -39,6 +38,11 @@ namespace PeerEvaluation
                 txtChoice3.Visible = true;
                 txtChoice4.Visible = true;
                 txtChoice5.Visible = true;
+                RequiredFieldValidator1.Visible = true;
+                RequiredFieldValidator2.Visible = true;
+                RequiredFieldValidator3.Visible = true;
+                RequiredFieldValidator4.Visible = true;
+                RequiredFieldValidator5.Visible = true;
             }
             else
             {
@@ -53,6 +57,11 @@ namespace PeerEvaluation
                 txtChoice3.Visible = false;
                 txtChoice4.Visible = false;
                 txtChoice5.Visible = false;
+                RequiredFieldValidator1.Visible = false;
+                RequiredFieldValidator2.Visible = false;
+                RequiredFieldValidator3.Visible = false;
+                RequiredFieldValidator4.Visible = false;
+                RequiredFieldValidator5.Visible = false;
             }
         }
 
@@ -81,15 +90,21 @@ namespace PeerEvaluation
             EvaluationForm eForm;
             if (Session["eForm"] != null) eForm = Session["eForm"] as EvaluationForm;
             else eForm = new EvaluationForm();
-            eForm.addQuestion(q);
-            Session["eForm"] = eForm;
-            txtDescription.Text = "";
-            txtChoice1.Text = "";
-            txtChoice2.Text = "";
-            txtChoice3.Text = "";
-            txtChoice4.Text = "";
-            txtChoice5.Text = "";
-            refreshList();
+            bool successful = eForm.addQuestion(q);
+            if (successful) {
+                Session["eForm"] = eForm;
+                txtDescription.Text = "";
+                txtChoice1.Text = "";
+                txtChoice2.Text = "";
+                txtChoice3.Text = "";
+                txtChoice4.Text = "";
+                txtChoice5.Text = "";
+                refreshList();
+                lblMessage.Text = "";
+            } else {
+                lblMessage.Text = "There is already a question with this description.";
+            }
+            
         }
 
         protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -117,19 +132,24 @@ namespace PeerEvaluation
         protected void btnModify_Click(object sender, EventArgs e)
         {
             EvaluationForm eForm = Session["eForm"] as EvaluationForm;
-            Question q = eForm.getQuestions(ListBox1.SelectedIndex);
-            q.setDescription(txtDescription.Text);
-            if (rblType.SelectedIndex == 0)
-            {
-                q.setChoice(0, txtChoice1.Text);
-                q.setChoice(1, txtChoice2.Text);
-                q.setChoice(2, txtChoice3.Text);
-                q.setChoice(3, txtChoice4.Text);
-                q.setChoice(4, txtChoice5.Text);
+            if(ListBox1.SelectedItem != null) {
+                Question q = eForm.getQuestions(ListBox1.SelectedIndex);
+                q.setDescription(txtDescription.Text);
+                if (rblType.SelectedIndex == 0) {
+                    q.setChoice(0, txtChoice1.Text);
+                    q.setChoice(1, txtChoice2.Text);
+                    q.setChoice(2, txtChoice3.Text);
+                    q.setChoice(3, txtChoice4.Text);
+                    q.setChoice(4, txtChoice5.Text);
+                }
+                eForm.replaceQuestion(ListBox1.SelectedIndex, q);
+                Session["eForm"] = eForm;
+                refreshList();
+                lblMessage.Text = "";
+            } else {
+                lblMessage.Text = "Select a question from the left panel.";
             }
-            eForm.replaceQuestion(ListBox1.SelectedIndex, q);
-            Session["eForm"] = eForm;
-            refreshList();
+            
         }
 
         protected void btnPublish_Click(object sender, EventArgs e)
@@ -164,11 +184,19 @@ namespace PeerEvaluation
                 }
                 conn.Close();
                 Response.Redirect("ClassManager.aspx");
+            } else {
+                lblNameMessage.Text = "Enter a name";
             }
         }
 
         protected void txtName_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        protected void btnCancel_Click(object sender, EventArgs e) {
+            Session["eForm"] = null;
+            Response.Redirect("ClassManager.aspx");
 
         }
     }

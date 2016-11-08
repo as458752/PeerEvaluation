@@ -20,7 +20,7 @@
     <br />
     <br />
     <br />
-    <asp:Panel ID="Panel1" runat="server" CssClass="auto-style1" HorizontalAlign="Center" Width="400px" BackColor="#CCFFFF">
+    <asp:Panel ID="Panel1" runat="server" CssClass="auto-style1" HorizontalAlign="Center" Width="400px" BackColor="#CCFFFF" DefaultButton="btnLogin">
         <br />
         <asp:Label ID="Label4" runat="server" Text="Username:"></asp:Label>
         <asp:TextBox ID="TextBoxUserName" runat="server"></asp:TextBox>

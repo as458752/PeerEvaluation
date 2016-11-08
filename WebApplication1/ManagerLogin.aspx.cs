@@ -13,7 +13,7 @@ namespace PeerEvaluation
         private static string username = "admin";
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["manager"]!=null) Response.Redirect("Manager.aspx");
+            if (Session["manager"]!=null) Response.Redirect("Manager.aspx");            
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -21,23 +21,16 @@ namespace PeerEvaluation
             string line;
             string fileLoc = Path.Combine(HttpRuntime.AppDomainAppPath, @"App_Data\managerPassword.txt");
             System.IO.StreamReader file = new System.IO.StreamReader(fileLoc);
-            if ((line = file.ReadLine()) != null)
-            {
+            if ((line = file.ReadLine()) != null) {
                 file.Close();
                 line = Encryption.decrypt(line, 4);
-                if (txtUsername.Text == username && txtPassword.Text == line)
-                {
+                if (txtUsername.Text == username && txtPassword.Text == line) {
                     Session["manager"] = true;
                     Response.Redirect("Manager.aspx");
-                }
-                else
-                {
+                } else {
                     lblError.Text = "Login Information is incorrect!";
-
                 }
-            }
-            else
-            {
+            } else {
                 file.Close();
                 lblError.Text = "System file is damaged!";
             }

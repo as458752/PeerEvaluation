@@ -56,7 +56,7 @@
 <body>
     <div class="auto-style6">
     
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="auto-style7">Student Registration Page</span><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="auto-style7">Registration Page</span><br />
     
     </div>
         <table class="auto-style1">
@@ -112,16 +112,6 @@
                 <td class="auto-style5">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TextBoxASUID" ErrorMessage="ASU ID is required" ForeColor="Red" ValidationGroup="registerGroup"></asp:RequiredFieldValidator>
                 </td>
-            </tr>
-            <tr>
-                <td class="auto-style2">Are you a student or professor?</td>
-                <td class="auto-style4">
-                    <asp:DropDownList ID="DropDownList1" runat="server">
-                        <asp:ListItem>Professor</asp:ListItem>
-                        <asp:ListItem>Student</asp:ListItem>
-                    </asp:DropDownList>
-                    </td>
-                <td>&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style2">&nbsp;</td>

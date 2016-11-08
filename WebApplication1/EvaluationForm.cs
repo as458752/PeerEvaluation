@@ -29,9 +29,15 @@ namespace PeerEvaluation
         {
             return questions;
         }
-        public void addQuestion(Question q)
+        public bool addQuestion(Question q)
         {
+            // Check for duplicate questions
+            foreach (Question question in questions) {
+                if (q.getDescription() == question.getDescription())
+                    return false;
+            }
             questions.Add(q);
+            return true;
         }
         public void removeQuestion(int index)
         {

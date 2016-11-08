@@ -63,23 +63,12 @@ namespace PeerEvaluation
                     {
                         SqlConnection conn1 = new SqlConnection(ConfigurationManager.ConnectionStrings["RegistrationConnectionString"].ConnectionString);
                         conn1.Open();
-                        string type = DropDownList1.SelectedItem.Text;
-                        if (type == "Professor")
-                        {
-                            type = "0";
-                        }
-                        else
-                        {
-                            type = "1";
-                        }
-
-                        string insertQuery = "update [Account] set [Username]=@Uname,[Email]=@email,[Password]=@password,[UserType]=@userType,[Registered]='1' where [ASU ID]=@ASUID";
+                        string insertQuery = "update [Account] set [Username]=@Uname,[Email]=@email,[Password]=@password,[Registered]='1' where [ASU ID]=@ASUID";
                         SqlCommand com1 = new SqlCommand(insertQuery, conn1);
                         com1.Parameters.AddWithValue("@Uname", TextBoxUN.Text);
                         com1.Parameters.AddWithValue("@email", TextBoxEmail.Text);
                         com1.Parameters.AddWithValue("@password", TextBoxPass.Text);
                         com1.Parameters.AddWithValue("@ASUID", TextBoxASUID.Text);
-                        com1.Parameters.AddWithValue("@userType", type);
 
                         com1.ExecuteNonQuery();
 

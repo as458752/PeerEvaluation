@@ -47,7 +47,6 @@ F:\Google Drive\My Docs\InstaEDU\2016-2\ASP.NET Alex\PeerEvaluation-master\WebAp
 C:\Users\Jing\Source\Repos\PeerEvaluation\WebApplication1\bin\PeerEvaluation.dll.config
 C:\Users\Jing\Source\Repos\PeerEvaluation\WebApplication1\bin\PeerEvaluation.dll
 C:\Users\Jing\Source\Repos\PeerEvaluation\WebApplication1\bin\PeerEvaluation.pdb
-C:\Users\Jing\Source\Repos\PeerEvaluation\WebApplication1\obj\Debug\PeerEvaluation.csprojResolveAssemblyReference.cache
 C:\Users\Jing\Source\Repos\PeerEvaluation\WebApplication1\obj\Debug\PeerEvaluation.dll
 C:\Users\Jing\Source\Repos\PeerEvaluation\WebApplication1\obj\Debug\PeerEvaluation.pdb
 C:\Users\Lenovo\Documents\Visual Studio 2015\Projects\PeerEvaluation-master\WebApplication1\bin\PeerEvaluation.dll.config
@@ -62,9 +61,3 @@ C:\Users\Jing\Source\Repos\PeerEvaluation-master\WebApplication1\bin\PeerEvaluat
 C:\Users\Jing\Source\Repos\PeerEvaluation-master\WebApplication1\obj\Debug\PeerEvaluation.csprojResolveAssemblyReference.cache
 C:\Users\Jing\Source\Repos\PeerEvaluation-master\WebApplication1\obj\Debug\PeerEvaluation.dll
 C:\Users\Jing\Source\Repos\PeerEvaluation-master\WebApplication1\obj\Debug\PeerEvaluation.pdb
-C:\Users\Satvinder\Desktop\PeerEvaluation-master\WebApplication1\bin\PeerEvaluation.dll.config
-C:\Users\Satvinder\Desktop\PeerEvaluation-master\WebApplication1\bin\PeerEvaluation.dll
-C:\Users\Satvinder\Desktop\PeerEvaluation-master\WebApplication1\bin\PeerEvaluation.pdb
-C:\Users\Satvinder\Desktop\PeerEvaluation-master\WebApplication1\obj\Debug\PeerEvaluation.csprojResolveAssemblyReference.cache
-C:\Users\Satvinder\Desktop\PeerEvaluation-master\WebApplication1\obj\Debug\PeerEvaluation.dll
-C:\Users\Satvinder\Desktop\PeerEvaluation-master\WebApplication1\obj\Debug\PeerEvaluation.pdb

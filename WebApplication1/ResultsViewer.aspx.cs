@@ -67,11 +67,12 @@ namespace PeerEvaluation {
                     if (reader.HasRows) {
                         // The results contain an entry for every time the student has been evaluated
                         while (reader.Read()) {
-                            // Add evaluator ID, name, grade
-                            result.addEvaluatorData(reader.GetString(0), reader.GetString(1), float.Parse(reader.GetString(2)));
-                            
-                            result.Date = reader.GetString(3);
-                            result.Time = reader.GetString(4);
+                            // Add evaluator ID, name, grade, date, time
+                            result.addEvaluatorData(reader.GetString(0),
+                                                    reader.GetString(1),
+                                                    float.Parse(reader.GetString(2)),
+                                                    reader.GetString(3),
+                                                    reader.GetString(4));
                         }
                         reader.Close();
                     }
@@ -96,7 +97,7 @@ namespace PeerEvaluation {
                     // Add initial data up to before the student evaluation links
                     tableCode = "<tr>" +
                         getCellHtml(result.FullName + "<br/>(" + result.AsuID.Trim() + ")", rowspan) +
-                        getCellHtml(result.Date + "<br/>" + result.Time, rowspan) +
+                        getCellHtml(result.getEvaluationDate(evaluators[0]) + "<br/>" + result.getEvaluationTime(evaluators[0]), 1) +
                         getCellHtml(result.getStatusString(), rowspan) + "<td rowspan='1'>";
                     panelFormResults.Controls.Add(new LiteralControl(tableCode));
 
@@ -114,7 +115,9 @@ namespace PeerEvaluation {
 
                     // Add additional data for the rest of the evaluators
                     for (int i = 1; i < evaluators.Count; i++) {
-                        tableCode = "<tr><td rowspan='1'>";
+                        tableCode = "<tr>" +
+                            getCellHtml(result.getEvaluationDate(evaluators[1]) + "</br>" + result.getEvaluationTime(evaluators[1]), 1) +
+                            "<td rowspan='1'>";
                         panelFormResults.Controls.Add(new LiteralControl(tableCode));
 
                         HyperLink newLink = new HyperLink();

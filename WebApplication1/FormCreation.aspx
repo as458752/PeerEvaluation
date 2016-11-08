@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FormCreation.aspx.cs" Inherits="PeerEvaluation.FormCreation" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<!DOCTYPE html>
+    <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -31,6 +31,7 @@
                 <td class="auto-style3" colspan="2">&nbsp;&nbsp;
                     <asp:Label ID="Label2" runat="server" Text="Evaluation Form Name:"></asp:Label>
 &nbsp;<asp:TextBox ID="txtName" runat="server" Width="416px" OnTextChanged="txtName_TextChanged"></asp:TextBox>
+                    <asp:Label ID="lblNameMessage" runat="server" ForeColor="Red"></asp:Label>
                     <br />
                     <br />
                 </td>
@@ -50,26 +51,34 @@
                     <br />
                     <asp:TextBox ID="txtDescription" runat="server" Width="508px"></asp:TextBox>
                     <br />
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtDescription" ErrorMessage="Enter a description" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <br />
                     <br />
                     <asp:Label ID="lblChoices" runat="server" Text="Choices:"></asp:Label>
                     <br />
                     <br />
                     <asp:Label ID="lblChoice1" runat="server" Text="Grade Point: 1"></asp:Label>
 &nbsp;<asp:TextBox ID="txtChoice1" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtChoice1" ErrorMessage="*" ForeColor="Red">*</asp:RequiredFieldValidator>
                     <br />
                     <asp:Label ID="lblChoice2" runat="server" Text="Grade Point: 2"></asp:Label>
 &nbsp;<asp:TextBox ID="txtChoice2" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtChoice2" ErrorMessage="*" ForeColor="Red">*</asp:RequiredFieldValidator>
                     <br />
                     <asp:Label ID="lblChoice3" runat="server" Text="Grade Point: 3"></asp:Label>
 &nbsp;<asp:TextBox ID="txtChoice3" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtChoice3" ErrorMessage="*" ForeColor="Red">*</asp:RequiredFieldValidator>
                     <br />
                     <asp:Label ID="lblChoice4" runat="server" Text="Grade Point: 4"></asp:Label>
 &nbsp;<asp:TextBox ID="txtChoice4" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtChoice4" ErrorMessage="*" ForeColor="Red">*</asp:RequiredFieldValidator>
                     <br />
                     <asp:Label ID="lblChoice5" runat="server" Text="Grade Point: 5"></asp:Label>
 &nbsp;<asp:TextBox ID="txtChoice5" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtChoice5" ErrorMessage="*" ForeColor="Red">*</asp:RequiredFieldValidator>
                     <br />
                     <br />
+                    <asp:Label ID="lblMessage" runat="server" ForeColor="Red"></asp:Label>
                 </td>
             </tr>
             <tr>
@@ -82,7 +91,8 @@
             </tr>
             <tr>
                 <td class="auto-style3" colspan="2">
-                    <asp:Button ID="btnPublish" runat="server" Height="42px" OnClick="btnPublish_Click" Text="Publish" Width="82px" />
+                    <asp:Button ID="btnCancel" runat="server" Height="42px" OnClick="btnCancel_Click" Text="Cancel" Width="82px" CausesValidation="False" />
+                    <asp:Button ID="btnPublish" runat="server" Height="42px" OnClick="btnPublish_Click" Text="Publish" Width="82px" CausesValidation="False" />
                 </td>
             </tr>
         </table>
