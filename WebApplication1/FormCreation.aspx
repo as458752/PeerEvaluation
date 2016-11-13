@@ -51,7 +51,7 @@
                     <br />
                     <asp:TextBox ID="txtDescription" runat="server" Width="508px"></asp:TextBox>
                     <br />
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtDescription" ErrorMessage="Enter a description" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtDescription" ErrorMessage="Enter a description" ForeColor="Red" ValidationGroup="questionGroup"></asp:RequiredFieldValidator>
                     <br />
                     <br />
                     <asp:Label ID="lblChoices" runat="server" Text="Choices:"></asp:Label>
@@ -59,23 +59,23 @@
                     <br />
                     <asp:Label ID="lblChoice1" runat="server" Text="Grade Point: 1"></asp:Label>
 &nbsp;<asp:TextBox ID="txtChoice1" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtChoice1" ErrorMessage="*" ForeColor="Red">*</asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtChoice1" ErrorMessage="*" ForeColor="Red" ValidationGroup="questionGroup">*</asp:RequiredFieldValidator>
                     <br />
                     <asp:Label ID="lblChoice2" runat="server" Text="Grade Point: 2"></asp:Label>
 &nbsp;<asp:TextBox ID="txtChoice2" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtChoice2" ErrorMessage="*" ForeColor="Red">*</asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtChoice2" ErrorMessage="*" ForeColor="Red" ValidationGroup="questionGroup">*</asp:RequiredFieldValidator>
                     <br />
                     <asp:Label ID="lblChoice3" runat="server" Text="Grade Point: 3"></asp:Label>
 &nbsp;<asp:TextBox ID="txtChoice3" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtChoice3" ErrorMessage="*" ForeColor="Red">*</asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtChoice3" ErrorMessage="*" ForeColor="Red" ValidationGroup="questionGroup">*</asp:RequiredFieldValidator>
                     <br />
                     <asp:Label ID="lblChoice4" runat="server" Text="Grade Point: 4"></asp:Label>
 &nbsp;<asp:TextBox ID="txtChoice4" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtChoice4" ErrorMessage="*" ForeColor="Red">*</asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtChoice4" ErrorMessage="*" ForeColor="Red" ValidationGroup="questionGroup">*</asp:RequiredFieldValidator>
                     <br />
                     <asp:Label ID="lblChoice5" runat="server" Text="Grade Point: 5"></asp:Label>
 &nbsp;<asp:TextBox ID="txtChoice5" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtChoice5" ErrorMessage="*" ForeColor="Red">*</asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtChoice5" ErrorMessage="*" ForeColor="Red" ValidationGroup="questionGroup">*</asp:RequiredFieldValidator>
                     <br />
                     <br />
                     <asp:Label ID="lblMessage" runat="server" ForeColor="Red"></asp:Label>
@@ -84,9 +84,9 @@
             <tr>
                 <td class="auto-style3">&nbsp;</td>
                 <td style="text-align: center">
-                    <asp:Button ID="btnAdd" runat="server" Height="29px" OnClick="btnAdd_Click" Text="Add Question" Width="122px" />
+                    <asp:Button ID="btnAdd" runat="server" Height="29px" OnClick="btnAdd_Click" Text="Add Question" Width="122px" ValidationGroup="questionGroup" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btnModify" runat="server" Height="30px" OnClick="btnModify_Click" Text="Modify Question" Width="143px" />
+                    <asp:Button ID="btnModify" runat="server" Height="30px" OnClick="btnModify_Click" Text="Modify Question" Width="143px" ValidationGroup="questionGroup" />
                 </td>
             </tr>
             <tr>

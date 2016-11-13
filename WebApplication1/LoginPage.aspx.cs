@@ -136,6 +136,7 @@ namespace PeerEvaluation
             {
                 msgLabel.ForeColor = Color.Red;
                 msgLabel.Text = "This email address does not match our records.";
+                msgLabel.Visible = true;
             }
         }
     }

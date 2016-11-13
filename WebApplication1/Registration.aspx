@@ -51,6 +51,19 @@
         .auto-style11 {
             height: 20px;
         }
+        .auto-style12 {
+            width: 311px;
+            text-align: right;
+            height: 36px;
+        }
+        .auto-style13 {
+            width: 188px;
+            height: 36px;
+        }
+        .auto-style14 {
+            text-align: left;
+            height: 36px;
+        }
     </style>
 </head>
 <body>
@@ -74,23 +87,27 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style3">Email:</td>
-                <td class="auto-style4">
+                <td class="auto-style12">Email:</td>
+                <td class="auto-style13">
                     <asp:TextBox ID="TextBoxEmail" runat="server" Width="180px"></asp:TextBox>
                 </td>
-                <td class="auto-style5">
+                <td class="auto-style14">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBoxEmail" ErrorMessage="Email is required." ForeColor="Red" ValidationGroup="registerGroup"></asp:RequiredFieldValidator>
                     <br />
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TextBoxEmail" ErrorMessage="You must enter the valid email." ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="registerGroup"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>
-                <td class="auto-style3">Password:</td>
-                <td class="auto-style4">
+                <td class="auto-style12">Password:</td>
+                <td class="auto-style13">
                     <asp:TextBox ID="TextBoxPass" runat="server" TextMode="Password" Width="180px"></asp:TextBox>
                 </td>
-                <td class="auto-style5">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBoxPass" ErrorMessage="Password is required." ForeColor="Red" ValidationGroup="registerGroup"></asp:RequiredFieldValidator>
+                <td class="auto-style14">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="TextBoxPass" ErrorMessage="Password is required." ForeColor="Red" ValidationGroup="registerGroup"></asp:RequiredFieldValidator>
+                    <br />
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="TextBoxPass" ErrorMessage="Password must be between 6 and 12 characters contain " ForeColor="Red" ValidationExpression="(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,12})$" ValidationGroup="registerGroup"></asp:RegularExpressionValidator>
+                    <br />
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="TextBoxPass" ErrorMessage="digit, alphabetic character and no special characters." ForeColor="Red" ValidationExpression="(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,12})$" ValidationGroup="registerGroup"></asp:RegularExpressionValidator>
                 </td>
             </tr>
             <tr>

@@ -66,8 +66,11 @@
         <br />
         <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
         <br />
-        <asp:Button ID="btnSendEmail" runat="server" OnClick="btnSendEmail_Click" Text="Send Password Reset Link" />
+        <asp:Button ID="btnSendEmail" runat="server" OnClick="btnSendEmail_Click" Text="Send Password Reset Link" ValidationGroup="resetGroup" />
         <br />
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtEmail" ErrorMessage="Email address is required!" ForeColor="Red" ValidationGroup="resetGroup"></asp:RequiredFieldValidator>
+        <br />
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmail" ErrorMessage="Email address is invalid!" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="resetGroup"></asp:RegularExpressionValidator>
         <br />
         <asp:Label ID="msgLabel" runat="server" ForeColor="Red" Text="Error Message" Visible="False"></asp:Label>
     <br />
@@ -82,6 +85,7 @@
 <br />
 <br />
 <br />
+    <br />
     <br />
     <br />
 </asp:Content>
