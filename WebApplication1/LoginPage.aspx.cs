@@ -17,7 +17,6 @@ namespace PeerEvaluation
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -113,7 +112,7 @@ namespace PeerEvaluation
             {
                 StringBuilder sb = new StringBuilder();
                 sb.Append("Hi " + username + ", <br /> Click on below given link to Reset Your Password <br />");
-                string encryed = Encryption.encrypt(username, 2);
+                string encryed = Encryption.encrypt(username, "email key");
                 sb.Append("<a href=http://localhost:5766/ResetPasswordPage.aspx?username=" + encryed);
                 sb.Append(">Click here to change your password</a> <br/>");
                 sb.Append("<br /> Thanks");

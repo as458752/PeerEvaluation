@@ -23,7 +23,7 @@ namespace PeerEvaluation
             System.IO.StreamReader file = new System.IO.StreamReader(fileLoc);
             if ((line = file.ReadLine()) != null) {
                 file.Close();
-                line = Encryption.decrypt(line, 4);
+                line = Encryption.decrypt(line, "secret key");
                 if (txtUsername.Text == username && txtPassword.Text == line) {
                     Session["manager"] = true;
                     Response.Redirect("Manager.aspx");

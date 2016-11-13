@@ -47,12 +47,12 @@ namespace PeerEvaluation
                     if ((line = file.ReadLine()) != null)
                     {
                         file.Close();
-                        line = Encryption.decrypt(line, 4);
+                        line = Encryption.decrypt(line, "secret key");
                         if (txtPasswordOld.Text != line) lblResult.Text = "Old passwords do not match!";
                         else
                         {
                             System.IO.StreamWriter SaveFile = new System.IO.StreamWriter(fileLoc);
-                            SaveFile.WriteLine(Encryption.encrypt(txtPasswordNew.Text,4));
+                            SaveFile.WriteLine(Encryption.encrypt(txtPasswordNew.Text, "secret key"));
                             lblResult.Text = "Password has been changed!";
                             SaveFile.Close();
                         }

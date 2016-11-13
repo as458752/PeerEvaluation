@@ -15,7 +15,7 @@ namespace PeerEvaluation
         protected void Page_Load(object sender, EventArgs e)
         {
             String encryed = Request.QueryString["username"];
-            Session["username"] = Encryption.decrypt(encryed, 2);
+            Session["username"] = Encryption.decrypt(encryed, "email key");
         }
 
         protected void confirmButton_Click(object sender, EventArgs e)
